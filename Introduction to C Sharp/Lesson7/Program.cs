@@ -13,7 +13,15 @@ namespace Lesson7
 
         static void StartGame()
         {
-            Game game = new Game(winCount: 2);
+            Game game = new Game(winCount: 3);
+            AI pc = new AI(game);
+
+            //PlayerVsPlayer(game);
+            PlayerVsPC(game, pc);
+        }
+
+        static void PlayerVsPlayer(Game game)
+        {
             Action<string> consoleWrite = delegate (string value) { Console.Write(value); };
             (string firstPlayer, string secondsPlayer) = CreateNewPlayers();
 
@@ -40,19 +48,79 @@ namespace Lesson7
                     Console.Clear();
                     game.PrintPlayingField(consoleWrite);
                     position = PlayerMove(secondsPlayer);
-                } 
+                }
                 while (!game.SetPlayerChip(position.x, position.y, 'O'));
-               
+
                 if (game.CheckingWin(position.x, position.y, 'O'))
                 {
                     game.PrintPlayingField(consoleWrite);
-                    Console.WriteLine($"Игрок: {firstPlayer} ВЫИГРАЛ!!!");
+                    Console.WriteLine($"Игрок: {secondsPlayer} ВЫИГРАЛ!!!");
                     break;
                 }
 
 
             } while (game.CheckingNextStep());
+        }
 
+        static void PlayerVsPC(Game game, AI pc)
+        {
+
+            Action<string> consoleWrite = delegate (string value) { Console.Write(value); };
+
+            Console.WriteLine("Добро пожаловать в игру Крестики Нолики!\nДля начала игры введите имя игрока.");
+            Console.Write("Игрок за 'Х': ");
+            string firstPlayer = Console.ReadLine();
+
+            do
+            {
+                (int x, int y) position;
+                do
+                {
+                    Console.Clear();
+                    game.PrintPlayingField(consoleWrite);
+                    position = PlayerMove(firstPlayer);
+                }
+                while (!game.SetPlayerChip(position.x, position.y, 'X'));
+
+                if (game.CheckingWin(position.x, position.y, 'X'))
+                {
+                    game.PrintPlayingField(consoleWrite);
+                    Console.WriteLine($"Игрок: {firstPlayer} ВЫИГРАЛ!!!");
+                    break;
+                }
+                
+                if (!game.CheckingNextStep())
+                {
+                    game.PrintPlayingField(consoleWrite);
+                    Console.WriteLine($"НИЧЬЯ");
+                    break;
+                }
+
+                do
+                {
+                    Console.Clear();
+                    game.PrintPlayingField(consoleWrite);
+                    Console.WriteLine($"Сейчас ход: {pc.Name}");
+                    //position = pc.NextMove();//Случайные ходы
+                    position = pc.NextMove(position.x, position.y, 'X');
+                }
+                while (!game.SetPlayerChip(position.x, position.y, 'O'));
+
+                if (game.CheckingWin(position.x, position.y, 'O'))
+                {
+                    game.PrintPlayingField(consoleWrite);
+                    Console.WriteLine($"Игрок: {pc.Name} ВЫИГРАЛ!!!");
+                    break;
+                }
+
+                if (!game.CheckingNextStep())
+                {
+                    game.PrintPlayingField(consoleWrite);
+                    Console.WriteLine($"НИЧЬЯ");
+                    break;
+                }
+
+            } while (true);
         }
 
         static (string, string) CreateNewPlayers()
