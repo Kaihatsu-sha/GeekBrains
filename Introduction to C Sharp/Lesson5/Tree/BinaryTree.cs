@@ -115,17 +115,6 @@ namespace Lesson5.Tree
                 queue.Enqueue(current.LeftDescendant);
                 OutToConsole("BFSearching", "6 Вернуться к пункту 2.");
                 continue;
-
-                //if (current.RightDescendant != null)
-                //{
-                //    queue.Enqueue(current.RightDescendant);
-                //    continue;
-                //}
-                //if (current.LeftDescendant != null)
-                //{
-                //    queue.Enqueue(current.LeftDescendant);
-                //    continue;
-                //}
             }
             OutToConsole("BFSearching", "2 Если очередь пуста, завершить работу алгоритма. Очередь пуста");
             return null;
@@ -167,14 +156,6 @@ namespace Lesson5.Tree
                 queue.Push(current.RightDescendant == null ? null : current.RightDescendant) ;
                 queue.Push(current.LeftDescendant == null ? null : current.LeftDescendant);
 
-                //if (current.RightDescendant != null)
-                //{
-                //    queue.Push(current.RightDescendant);
-                //}
-                //if (current.LeftDescendant != null)
-                //{
-                //    queue.Push(current.LeftDescendant);                    
-                //}
                 OutToConsole("DFSearching", "6 Вернуться к пункту 2."); 
                 continue;
             }
