@@ -10,16 +10,20 @@ namespace BasicOOP
     public class Account
     {
         ///
-        /// Создать класс счет в банке с закрытыми полями: номер счета, баланс, тип банковского счета (использовать перечислимый тип). 
-        /// Предусмотреть методы для доступа к данным – заполнения и чтения. Создать объект класса, заполнить его поля и вывести информацию об объекте класса на печать
+        /// Изменить класс счет в банке из упражнения таким образом, чтобы номер счета генерировался сам и был уникальным. 
+        /// Для этого надо создать в классе статическую переменную и метод, который увеличивает значение этого переменной.
         ///
-        int _accountNumber;
+        static int _accountNumbers = 0;
+        int _accountNumber =-1;
         double _accountBalance;
         AccountTypeEnum _accountType;
 
-        public void SetAccountNumber(int accountNumber)
+        public void SetAccountNumber()
         {
-            _accountNumber = accountNumber;   
+            if (_accountNumber < 0)
+            {
+                _accountNumber = ++_accountNumbers;
+            }
         }
 
         public int GetAccountNumber()
