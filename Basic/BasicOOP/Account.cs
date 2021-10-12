@@ -10,15 +10,44 @@ namespace BasicOOP
     public class Account
     {
         ///
-        /// Изменить класс счет в банке из упражнения таким образом, чтобы номер счета генерировался сам и был уникальным. 
-        /// Для этого надо создать в классе статическую переменную и метод, который увеличивает значение этого переменной.
+        /// В классе банковский счет, удалить методы заполнения полей. Вместо этих методов создать конструкторы. 
+        /// Переопределить конструктор по умолчанию, создать конструктор для заполнения поля баланс, конструктор для заполнения поля тип банковского счета, 
+        /// конструктор для заполнения баланса и типа банковского счета. 
+        /// Каждый конструктор должен вызывать метод, генерирующий номер счета.
         ///
         static int _accountNumbers = 0;
         int _accountNumber =-1;
         double _accountBalance;
         AccountTypeEnum _accountType;
 
-        public void SetAccountNumber()
+
+        public Account()
+            : this(0, AccountTypeEnum.Debit)
+        {
+
+        }
+
+        public Account(double accountBalance)
+            : this(accountBalance, AccountTypeEnum.Debit)
+        { 
+
+        }
+
+        public Account(AccountTypeEnum accountType)
+            : this(0, accountType)
+        {
+
+        }
+
+        public Account(double accountBalance, AccountTypeEnum accountType)
+        {
+            _accountBalance = accountBalance;
+            _accountType = accountType;
+            SetAccountNumber();
+        }
+
+
+        void SetAccountNumber()
         {
             if (_accountNumber < 0)
             {
@@ -31,19 +60,9 @@ namespace BasicOOP
             return _accountNumber;
         }
 
-        public void SetAccountBalance(double accountBalance)
-        {
-            _accountBalance = accountBalance;
-        }
-
         public double GetAccountBalance()
         {
             return _accountBalance;
-        }
-
-        public void SetAccountType(AccountTypeEnum accountType)
-        {
-            _accountType = accountType;
         }
 
         public AccountTypeEnum GetAccountType()
