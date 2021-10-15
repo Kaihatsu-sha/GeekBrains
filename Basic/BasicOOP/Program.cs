@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace BasicOOP
 {
@@ -6,7 +7,13 @@ namespace BasicOOP
     {
         static void Main(string[] args)
         {
-            Account account= new Account(AccountTypeEnum.Credit);
+            //AccountTest();
+            StringTest();
+        }
+
+        static void AccountTest()
+        {
+            Account account = new Account(AccountTypeEnum.Credit);
 
             Console.WriteLine($"Номер счета:{account.Number}\nТип счета:{account.Type}\nБаланс:{account.Balance}");
             Console.ReadKey();
@@ -26,14 +33,39 @@ namespace BasicOOP
             Console.WriteLine($"Номер счета:{account.Number}\nТип счета:{account.Type}\nБаланс:{account.Balance}");
             Console.ReadKey();
 
-            account = new Account(99,AccountTypeEnum.Credit);
+            account = new Account(99, AccountTypeEnum.Credit);
 
             Console.WriteLine($"Номер счета:{account.Number}\nТип счета:{account.Type}\nБаланс:{account.Balance}");
             Console.ReadKey();
-            amount = 100;
+            amount = 10;
             Console.WriteLine($"Снятие со счета на {amount}");
             account.Withdraw(amount);
             Console.WriteLine($"Номер счета:{account.Number}\nТип счета:{account.Type}\nБаланс:{account.Balance}");
+            Console.ReadKey();
+
+            Account account2 = new Account(100, AccountTypeEnum.Credit);
+            Console.WriteLine($"Номер счета:{account2.Number}\nТип счета:{account2.Type}\nБаланс:{account2.Balance}");
+            Console.ReadKey();
+            Console.WriteLine($"Номер счета:{account.Number}\nТип счета:{account.Type}\nБаланс:{account.Balance}");
+            Console.WriteLine($"Перевод на счет {account.Number} сумма {amount}");
+            account.TransferFromAccount(account2, amount);
+            Console.WriteLine($"Номер счета:{account.Number}\nТип счета:{account.Type}\nБаланс:{account.Balance}");
+            Console.WriteLine($"Номер счета:{account2.Number}\nТип счета:{account2.Type}\nБаланс:{account2.Balance}");
+            Console.ReadKey();
+        }
+
+        static void StringTest()
+        {
+            string example = "";
+            //example = "examPle";
+            //example = StringUtils.RevertString(example);
+            //Console.WriteLine(example);
+
+            example = StringUtils.SearchMailsFromFile(@"C:\Users\User\Desktop\note.txt", '&');
+            StringUtils.WriteMailsToFile(@"C:\Users\User\Desktop\notes.txt", example);
+            Console.WriteLine(example);
+
+
             Console.ReadKey();
         }
     }

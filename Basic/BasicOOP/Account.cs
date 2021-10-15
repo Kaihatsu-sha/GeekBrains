@@ -71,7 +71,7 @@ namespace BasicOOP
         /// <exception cref="ArgumentException"></exception>
         public void Withdraw(double amount)//Снятие
         {
-            if (amount > 0)
+            if (amount >= 0)
             {
                 if (_accountBalance - amount >= 0)
                 {
@@ -86,6 +86,20 @@ namespace BasicOOP
             {
                 throw new ArgumentException("Сумма на снятие не может быть меньше 0.");
             }
+        }
+
+        public void TransferFromAccount(Account sender,double amount)//Перевод со счета
+        {
+            try
+            {
+                sender.Withdraw(amount);
+                Replenish(amount);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
         }
 
         /// <summary>
