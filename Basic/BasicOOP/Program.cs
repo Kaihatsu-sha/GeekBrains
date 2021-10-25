@@ -8,7 +8,8 @@ namespace BasicOOP
         static void Main(string[] args)
         {
             //AccountTest();
-            StringTest();
+            //StringTest();
+            BuildingTest();
         }
 
         static void AccountTest()
@@ -68,5 +69,23 @@ namespace BasicOOP
 
             Console.ReadKey();
         }
+
+        static void BuildingTest()
+        {
+            Building buildingA = new Building("Парковка");
+            Console.WriteLine(buildingA);
+
+            Building buildingB = new Building("Башня Старка", 99, 14, 4, 3.0);
+            Console.WriteLine(buildingB);
+
+            Building buildingC = Creator.CreateBuild();
+            Console.WriteLine(buildingC);
+            Creator.DestroyBuilding(buildingC.BuildingNumber);
+
+            Building buildingD = Creator.CreateBuild("Simple building");
+            Console.WriteLine(buildingC);
+            //
+        }
+
     }
 }
