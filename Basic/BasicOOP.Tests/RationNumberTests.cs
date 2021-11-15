@@ -46,6 +46,124 @@ namespace BasicOOP.Tests
         }
 
         [Fact]
+        public void OperatorEquals_ReturnsTrue()
+        {
+            //Arrange
+            RationNumber valueA = new RationNumber(10, 2);
+            RationNumber valueB = new RationNumber(10, 2);
+            //Act
+            bool result = valueA == valueB;
+            //Assert
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void OperatorEquals_Nulls_ReturnsTrue()
+        {
+            //Arrange
+            RationNumber valueA = null;
+            RationNumber valueB = null;
+            //Act
+            bool result = valueA == valueB;
+            //Assert
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void OperatorEquals_NullAndNotNull_ReturnsException()
+        {
+            //Arrange
+            RationNumber valueA = null;
+            RationNumber valueB = new RationNumber(11, 2);
+            //Act
+            //Assert
+            Assert.Throws<NullReferenceException>(() => valueA == valueB);
+        }
+
+        [Fact]
+        public void OperatorEquals_NotNullAndNull_ReturnsFalse()
+        {
+            //Arrange
+            RationNumber valueA = new RationNumber(11, 2);
+            RationNumber valueB = null;
+            //Act
+            bool result = valueA == valueB;
+            //Assert
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void OperatorEquals_NotNulls_ReturnsFalse()
+        {
+            //Arrange
+            RationNumber valueA = new RationNumber(11, 2);
+            RationNumber valueB = new RationNumber(12, 2);
+            //Act
+            bool result = valueA == valueB;
+            //Assert
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void OperatorNotEquals_ReturnsFalse()
+        {
+            //Arrange
+            RationNumber valueA = new RationNumber(10, 2);
+            RationNumber valueB = new RationNumber(10, 2);
+            //Act
+            bool result = valueA != valueB;
+            //Assert
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void OperatorNotEquals_Nulls_ReturnsFalse()
+        {
+            //Arrange
+            RationNumber valueA = null;
+            RationNumber valueB = null;
+            //Act
+            bool result = valueA != valueB;
+            //Assert
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void OperatorNotEquals_NullAndNotNull_ReturnsException()
+        {
+            //Arrange
+            RationNumber valueA = null;
+            RationNumber valueB = new RationNumber(11, 2);
+            //Act
+            //Assert
+            Assert.Throws<NullReferenceException>(() => valueA != valueB);
+        }
+
+        [Fact]
+        public void OperatorNotEquals_NotNullAndNull_ReturnsTrue()
+        {
+            //Arrange
+            RationNumber valueA = new RationNumber(11, 2);
+            RationNumber valueB = null;
+            //Act
+            bool result = valueA != valueB;
+            //Assert
+            Assert.True(result);
+        }
+
+        [Fact]
+        public void OperatorNotEquals_NotNulls_ReturnsTrue()
+        {
+            //Arrange
+            RationNumber valueA = new RationNumber(11, 2);
+            RationNumber valueB = new RationNumber(12, 2);
+            //Act
+            bool result = valueA != valueB;
+            //Assert
+            Assert.True(result);
+        }
+
+        [Fact]
         public void N1D2PlusN1D2_ReturnsN2D2()
         {
             //Arrange

@@ -57,7 +57,10 @@ namespace BasicOOP
 
         public bool Equals(RationNumber number)
         {
-            return number!=null && number.Numerator == _numerator && number.Denominator == _denominator;
+            if (number is null)
+                return false;
+
+            return number.Numerator == _numerator && number.Denominator == _denominator;
         }
 
         public override string ToString()
@@ -65,17 +68,21 @@ namespace BasicOOP
             return $"({_numerator}/{_denominator})";
         }
 
-        //public static bool operator ==(RationNumber valueA, RationNumber valueB)
-        //{
-        //    return valueA.Equals(valueB);
-        //}
+        public static bool operator ==(RationNumber valueA, RationNumber valueB)
+        {
+            if(valueA is null && valueB is null)
+                return true;
 
-        //public static bool operator !=(RationNumber valueA, RationNumber valueB)
-        //{
-        //    if(valueA.Denominator)
-        //    if (valueA as RationNumber && valueB as RationNumber)
-        //    return !valueA.Equals(valueB);//Под вопросом
-        //}
+            return valueA.Equals(valueB);
+        }
+
+        public static bool operator !=(RationNumber valueA, RationNumber valueB)
+        {
+            if (valueA is null && valueB is null)
+                return false;
+
+            return !valueA.Equals(valueB);
+        }
 
         public static RationNumber operator +(RationNumber valueA, RationNumber valueB)
         {
