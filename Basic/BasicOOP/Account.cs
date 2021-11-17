@@ -118,5 +118,55 @@ namespace BasicOOP
                 throw new ArgumentException("Сумма на пополнение не может быть меньше 0.");
             }
         }
+
+        //Для класса банковский счет переопределить операторы == и != для сравнения информации в двух счетах.
+        //Переопределить метод Equals аналогично оператору ==, не забыть переопределить метод GetHashCode(). 
+        //Переопределить метод ToString() для печати информации о счете.
+        //Протестировать функционирование переопределенных методов и операторов на простом примере.
+
+        public static bool operator ==(Account accountA, Account accountB)
+        {
+            if(accountA is null && accountB is null)
+            {
+                return true;
+            }
+
+            return accountA.Equals(accountB);            
+        }
+
+        public static bool operator !=(Account accountA, Account accountB)
+        {
+            if (accountA is null && accountB is null)
+            {
+                return false;
+            }
+
+            return !accountA.Equals(accountB);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Account);
+        }
+
+        public bool Equals(Account account)
+        {
+            if(account is null)
+            {
+                return false;
+            }
+
+            return account.Number == Number && account.Type == Type && account.Balance == Balance;
+        }
+
+        public override int GetHashCode()
+        {
+            return Number.GetHashCode() + Type.GetHashCode() + Balance.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return $"{Type} счет {Number} с балансом {Balance}";
+        }
     }
 }
