@@ -6,22 +6,21 @@ using System.Threading.Tasks;
 
 namespace GameClassLibrary
 {
-    internal class SingleHandedWeapons : Weapon
+    public class SingleHandedWeapons : Weapon
     {
         protected int _damagePenalty;//Штраф к урону в %
 
-        protected SingleHandedWeapons(
-            int id, 
+        public SingleHandedWeapons(
             string name, 
             string icon, 
             int minDamageLevel, 
             int maxDamageLevel, 
             int chanceCriticalHit,
-            int damagePenalty) : base(id, name, icon, minDamageLevel, maxDamageLevel, chanceCriticalHit, 1)
+            int damagePenalty) : base(name, icon, minDamageLevel, maxDamageLevel, chanceCriticalHit, 1)
         {
             _damagePenalty = damagePenalty;
-            _minDamageLevel *= (100 - _damagePenalty) / 100;
-            _maxDamageLevel *= (100 - _damagePenalty) / 100;
+            _minDamageLevel = minDamageLevel * (100 - _damagePenalty) / 100;
+            _maxDamageLevel = maxDamageLevel * (100 - _damagePenalty) / 100;
         }
     }
 }
