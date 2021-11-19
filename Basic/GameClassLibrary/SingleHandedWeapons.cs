@@ -11,12 +11,11 @@ namespace GameClassLibrary
         protected int _damagePenalty;//Штраф к урону в %
 
         public SingleHandedWeapons(
-            string name, 
-            string icon, 
+            string name,
             int minDamageLevel, 
             int maxDamageLevel, 
             int chanceCriticalHit,
-            int damagePenalty) : base(name, icon, minDamageLevel, maxDamageLevel, chanceCriticalHit, 1)
+            int damagePenalty) : base(name, minDamageLevel, maxDamageLevel, chanceCriticalHit, 1)
         {
             _damagePenalty = damagePenalty;
             _minDamageLevel = minDamageLevel * (100 - _damagePenalty) / 100;

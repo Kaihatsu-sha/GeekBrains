@@ -12,11 +12,10 @@ namespace GameClassLibrary
 
         public TwoHandedWeapons(
             string name, 
-            string icon, 
             int minDamageLevel, 
             int maxDamageLevel, 
             int chanceCriticalHit,
-            int bonusChanceHitting) : base(name, icon, minDamageLevel, maxDamageLevel, chanceCriticalHit, 2)
+            int bonusChanceHitting) : base(name, minDamageLevel, maxDamageLevel, chanceCriticalHit, 2)
         {
             _bonusChanceHitting = bonusChanceHitting;
             _chanceHitting += _bonusChanceHitting;

@@ -9,18 +9,20 @@ namespace GameClassLibrary
     public class Armor : BaseObject
     {
         protected int _armorHealthPoints;//Броня        
-        protected List<(AttributesEnum, int)> _attributes;
+        protected List<(AttributesEnum Name, int Value)> _attributes;
 
-        protected Armor(string name, string icon, int armorHealthPoints) : base(name, icon)
+        protected Armor(string name, int armorHealthPoints) : base(name)
         {
             _armorHealthPoints = armorHealthPoints;
             _attributes = new List<(AttributesEnum, int)>();
         }
 
-        public List<(AttributesEnum, int)> Attributes 
+        public List<(AttributesEnum Name, int Value)> Attributes 
         {
             get { return _attributes; }
         }
 
+        public int ArmorHealthPoints
+        { get { return _armorHealthPoints; } }
     }
 }

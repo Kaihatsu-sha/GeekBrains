@@ -8,7 +8,6 @@ namespace GameClassLibrary
 {
     public enum AttributesEnum
     {
-        Damage,
         HealthPoints,
         ChanceHitting,
         ChanceDodge,

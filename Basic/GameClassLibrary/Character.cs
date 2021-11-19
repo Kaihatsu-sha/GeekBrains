@@ -10,19 +10,17 @@ namespace GameClassLibrary
     {
         private int _healthPoints;//Очки здоровья
         private int _actionPoints;//Очки действий
-        private int _armorHealthPoints;//Броня
         private int _chanceCriticalHit;//Шанс нанести критический удар
         private int _chanceDodge;//Уклонение
         private int _chanceHitting;
+        private int _armorHealthPoints;
         private Armor _chestArmor;//Броня
         private Weapon _rightHand; //Правая рука
         private Weapon _leftHand;//Левая рука
 
         private bool _isDead;
 
-
-
-        public Character(string name, string skin) : base(name, skin)
+        public Character(string name) : base(name)
         {
             _healthPoints = 100;
             _actionPoints = 4;
@@ -61,16 +59,9 @@ namespace GameClassLibrary
             get { return _chestArmor; }
             set 
             {
-                if (_chestArmor is null)
-                {
-                    switch (value)
-                    {
-                        case HeavyArmor:
-                            break;
-                    }
-                }
-                _chestArmor = value; 
-
+                CleaningCharacteristics();
+                _chestArmor = value;
+                AddingCharacteristics(value);
             }
         }
         
@@ -99,6 +90,7 @@ namespace GameClassLibrary
         {
             _actionPoints = 4;
             _healthPoints = 100;
+            _armorHealthPoints = _chestArmor is null ? 0 : _chestArmor.ArmorHealthPoints;
         }
 
         public void Attack(Character enemy)
@@ -163,5 +155,56 @@ namespace GameClassLibrary
                 return true;
             }
         }
+
+        private void AddingCharacteristics(Armor armor)
+        {
+            _armorHealthPoints = armor.ArmorHealthPoints;
+            foreach (var attribute in armor.Attributes)
+            {
+                switch (attribute.Name)
+                {
+                    case AttributesEnum.ChanceCriticalHit:
+                        _chanceCriticalHit += attribute.Value;
+                        break;
+                    case AttributesEnum.ChanceDodge:
+                        _chanceDodge += attribute.Value;
+                        break;
+                    case AttributesEnum.ChanceHitting:
+                        _chanceHitting += attribute.Value;
+                        break;
+                    case AttributesEnum.HealthPoints:
+                        _healthPoints += attribute.Value;
+                        break;
+                }
+            }
+        }
+
+        private void CleaningCharacteristics()
+        {
+            if (_chestArmor is null)
+            {
+                return;
+            }
+
+            foreach (var attribute in _chestArmor.Attributes)
+            {
+                switch (attribute.Name)
+                {
+                    case AttributesEnum.ChanceCriticalHit:
+                        _chanceCriticalHit -= attribute.Value;
+                        break;
+                    case AttributesEnum.ChanceDodge:
+                        _chanceDodge -= attribute.Value;
+                        break;
+                    case AttributesEnum.ChanceHitting:
+                        _chanceHitting -= attribute.Value;
+                        break;
+                    case AttributesEnum.HealthPoints:
+                        _healthPoints -= attribute.Value;
+                        break;
+                }
+            }
+        }
+        
     }
 }

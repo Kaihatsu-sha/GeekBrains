@@ -8,7 +8,7 @@ namespace GameClassLibrary
 {
     public class LeatherArmor : Armor
     {
-        public LeatherArmor(string name, string icon, int armorHealthPoints) : base(name, icon, armorHealthPoints)
+        public LeatherArmor(string name, int armorHealthPoints) : base(name, armorHealthPoints)
         {
             _attributes.Add((AttributesEnum.ChanceCriticalHit, 5));
             _attributes.Add((AttributesEnum.ChanceDodge, 10));

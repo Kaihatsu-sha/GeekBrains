@@ -45,18 +45,58 @@ namespace ConsoleAppTournament
         private void CreatingParticipants()
         {
             Participants.AddRange(new List<Character>{
-                new Character("Сир Лора", "")
+                new Character("Сир Лора")
                 { 
-                    RightHand = new SingleHandedWeapons("","",8,13,10,10) ,
-                    LeftHand = new SingleHandedWeapons("","",8,13,10,10) ,
-                    Notify = OutToConsole},
-                new Character("Королевский палач", ""){ RightHand = new TwoHandedWeapons("","",10,15,10,10) , Notify = OutToConsole },
-                new Character("Степной волк", ""){ RightHand = new TwoHandedWeapons("","",10,15,10,10) , Notify = OutToConsole },
-                new Character("Продавец мяса", ""){ RightHand = new TwoHandedWeapons("","",10,15,10,10) , Notify = OutToConsole },
-                new Character("Разбойник", ""){ RightHand = new TwoHandedWeapons("","",10,15,10,10) , Notify = OutToConsole },
-                new Character("МариКрим Де Франс", ""){ RightHand = new TwoHandedWeapons("","",10,15,10,10) , Notify = OutToConsole },
-                new Character("Оходник Робин", ""){ RightHand = new TwoHandedWeapons("","",10,15,10,10) , Notify = OutToConsole },
-                new Character("Счастливчик Джо", ""){ RightHand = new TwoHandedWeapons("","",10,15,10,10) , Notify = OutToConsole }
+                    RightHand = new SingleHandedWeapons("Душитель",8,13,10,10) ,
+                    LeftHand = new SingleHandedWeapons("Пожиратель плоти",8,13,10,10) ,
+                    Chest = new LeatherArmor("Змеиная кожа", 30),
+                    Notify = OutToConsole
+                },
+                new Character("Королевский палач")
+                { 
+                    RightHand = new TwoHandedWeapons("Топор палача",14,15,10,10) ,
+                    Chest = new LightArmor("Роба палача", 10),
+                    Notify = OutToConsole 
+                },
+                new Character("Укротитель зверей Нэсс")
+                { 
+                    RightHand = new TwoHandedWeapons("Пленитель",10,15,20,0) ,
+                    Chest = new LeatherArmor("Покров зверя", 30),
+                    Notify = OutToConsole 
+                },
+                new Character("Продавец мяса")
+                {
+                    RightHand = new SingleHandedWeapons("Разделитель",3,5,50,5) ,
+                    LeftHand = new SingleHandedWeapons("Разрубатель",10,10,0,20) ,
+                    Chest = new LightArmor("Фартук мясника", 10),
+                    Notify = OutToConsole
+                },
+                new Character("Разбойник")
+                {
+                    RightHand = new SingleHandedWeapons("Кинжал",7,10,15,15) ,
+                    LeftHand = new SingleHandedWeapons("Кинжал",7,10,15,15) ,
+                    Chest = new LeatherArmor("Кожанная броня", 10),
+                    Notify = OutToConsole
+                },
+                new Character("МариКрим Де Франс")
+                {
+                    RightHand = new TwoHandedWeapons("Воздаяние",15,25,0,0) ,
+                    Chest = new HeavyArmor("Бастион", 50),
+                    Notify = OutToConsole
+                },
+                new Character("Оходник Робин")
+                {
+                    RightHand = new TwoHandedWeapons("Пронзатель",18,18,0,10) ,
+                    Chest = new LeatherArmor("Туника бойца", 25),
+                    Notify = OutToConsole
+                },
+                new Character("Счастливчик Джо")
+                {
+                    RightHand = new SingleHandedWeapons("Смеющийся Джокер",1,99,99,-60) ,
+                    LeftHand = new SingleHandedWeapons("Плачущий Джокер",5,5,0,99) ,
+                    Chest = new LightArmor("Фрак", 5),
+                    Notify = OutToConsole
+                }
             });
 
         }

@@ -16,11 +16,10 @@ namespace GameClassLibrary
 
         protected Weapon(
             string name,
-            string icon,
             int minDamageLevel,
             int maxDamageLevel,
             int chanceCriticalHit,
-            int actionPointCost) : base(name, icon)
+            int actionPointCost) : base(name)
         {
             _minDamageLevel = minDamageLevel;
             _maxDamageLevel = maxDamageLevel;

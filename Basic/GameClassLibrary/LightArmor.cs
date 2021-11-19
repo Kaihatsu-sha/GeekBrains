@@ -8,10 +8,10 @@ namespace GameClassLibrary
 {
     public class LightArmor : Armor
     {
-        public LightArmor(string name, string icon, int armorHealthPoints) : base(name, icon, armorHealthPoints)
+        public LightArmor(string name, int armorHealthPoints) : base(name, armorHealthPoints)
         {
-            _attributes.Add((AttributesEnum.ChanceHitting, 10));
-            _attributes.Add((AttributesEnum.ChanceDodge, 10));
+            _attributes.Add((AttributesEnum.ChanceHitting, 15));
+            _attributes.Add((AttributesEnum.ChanceDodge, 15));
         }
     }
 }
