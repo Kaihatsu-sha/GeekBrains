@@ -1,3 +1,9 @@
+using Kaihatsu.Timesheets.Core.Abstraction.Services;
+using Kaihatsu.Timesheets.Core.Logger;
+using Kaihatsu.Timesheets.WebAPI.Controllers;
+using Kaihatsu.Timesheets.WebAPI.Core;
+using Kaihatsu.Timesheets.WebAPI.Data;
+using Kaihatsu.Timesheets.WebAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -27,6 +33,9 @@ namespace Kaihatsu.Timesheets.WebAPI
         {
 
             services.AddControllers();
+            services.AddScoped<ILoggerService<PersonsController>, LoggerService<PersonsController>>();
+            services.AddScoped<IPersonService, PersonService>();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Kaihatsu.Timesheets.WebAPI", Version = "v1" });

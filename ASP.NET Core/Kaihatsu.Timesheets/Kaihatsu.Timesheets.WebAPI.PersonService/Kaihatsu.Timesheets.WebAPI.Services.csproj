@@ -1,19 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Kaihatsu.Timesheets.Core.Abstraction\Kaihatsu.Timesheets.Core.Abstraction.csproj" />
-    <ProjectReference Include="..\Kaihatsu.Timesheets.Core.Logger\Kaihatsu.Timesheets.Core.Logger.csproj" />
     <ProjectReference Include="..\Kaihatsu.Timesheets.WebAPI.Core\Kaihatsu.Timesheets.WebAPI.Core.csproj" />
     <ProjectReference Include="..\Kaihatsu.Timesheets.WebAPI.Data\Kaihatsu.Timesheets.WebAPI.Data.csproj" />
-    <ProjectReference Include="..\Kaihatsu.Timesheets.WebAPI.PersonService\Kaihatsu.Timesheets.WebAPI.Services.csproj" />
   </ItemGroup>
 
 </Project>
