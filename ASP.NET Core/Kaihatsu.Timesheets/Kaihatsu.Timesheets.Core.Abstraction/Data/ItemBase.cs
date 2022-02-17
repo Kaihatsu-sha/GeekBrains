@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Kaihatsu.Timesheets.Core.Abstraction.Data
 {
-    public abstract class ItemBase
+    public abstract class ItemBase//TODO: <TUniqueId>
     {
         public long Id { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

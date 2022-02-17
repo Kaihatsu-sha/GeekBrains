@@ -12,34 +12,34 @@ namespace Kaihatsu.Timesheets.WebAPI.Services
 {
     public sealed class PersonService : IPersonService
     {
-        private readonly IRepositoryService<Person> _repositoryService;
+        private readonly IRepositoryService<User> _repositoryService;
 
-        public PersonService()
+        public PersonService(IRepositoryService<User> repository)
         {
-            _repositoryService = new RepositoryServiceMock();
+            _repositoryService = repository;
         }
 
-        public Task CreateAsync(Person entity, CancellationToken token)
+        public Task CreateAsync(User entity, CancellationToken token)
         {
             return _repositoryService.CreateAsync(entity, token);
         }
 
         public Task DeletePersonByIdAsync(int id, CancellationToken token)
         {
-            Person person = _repositoryService.ReadAllAsync(token).Result.FirstOrDefault(item => item.Id == id);
+            User person = _repositoryService.ReadAllAsync(token).Result.FirstOrDefault(item => item.Id == id);
             return _repositoryService.DeleteAsync(person, token);
         }
 
-        public Task<IEnumerable<Person>> GetPersonByIdAsync(int id, CancellationToken token)
+        public Task<IEnumerable<User>> GetPersonByIdAsync(int id, CancellationToken token)
         {
-            IEnumerable<Person> persons = _repositoryService.ReadAllAsync(token).Result.Where(item => item.Id == id);
+            IEnumerable<User> persons = _repositoryService.ReadAllAsync(token).Result.Where(item => item.Id == id);
 
             return Task.Run(() => persons);
         }
 
-        public Task<IEnumerable<Person>> GetPersonsFromPaginationAsync(int skip, int take, CancellationToken token)
+        public Task<IEnumerable<User>> GetPersonsFromPaginationAsync(int skip, int take, CancellationToken token)
         {
-            IEnumerable<Person> persons = _repositoryService
+            IEnumerable<User> persons = _repositoryService
                 .ReadAllAsync(token)
                 .Result
                 .Skip(skip)
@@ -48,9 +48,9 @@ namespace Kaihatsu.Timesheets.WebAPI.Services
             return Task.Run(() => persons);
         }
 
-        public Task<IEnumerable<Person>> SearchPersonByNameAsync(string name, CancellationToken token)
+        public Task<IEnumerable<User>> SearchPersonByNameAsync(string name, CancellationToken token)
         {
-            IEnumerable<Person> persons = _repositoryService
+            IEnumerable<User> persons = _repositoryService
                 .ReadAllAsync(token)
                 .Result
                 .Where(item => item.FirstName.Contains(name) || item.LastName.Contains(name));
@@ -58,7 +58,7 @@ namespace Kaihatsu.Timesheets.WebAPI.Services
             return Task.Run(() => persons);
         }
 
-        public Task UpdateAsync(Person entity, CancellationToken token)
+        public Task UpdateAsync(User entity, CancellationToken token)
         {
             return _repositoryService.UpdateAsync(entity, token);
         }

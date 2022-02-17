@@ -11,7 +11,7 @@ namespace Kaihatsu.Timesheets.WebAPI.Controllers
 {
     [Route("api/v1/persons")]
     [ApiController]
-    public class PersonsController : ControllerBase
+    public class PersonsController : ControllerBase //TODO: Сделать тесты!!!
     {
         private readonly ILoggerService<PersonsController> _logger;
         private readonly IPersonService _personService;
@@ -31,11 +31,11 @@ namespace Kaihatsu.Timesheets.WebAPI.Controllers
         /// <returns>IEnumerable<Person></returns>
         [HttpGet]
         [Route("{id}")]
-        public async Task<ActionResult <IEnumerable<Person>> > GetPersonById([FromRoute] int id, CancellationToken token)
+        public async Task<ActionResult <IEnumerable<User>> > GetPersonById([FromRoute] int id, CancellationToken token)
         {
             _logger.LogTrace("GetPersonById id: {0}", id);
-            IEnumerable<Person> persons =  await _personService.GetPersonByIdAsync(id, token);
-            return new ActionResult<IEnumerable<Person>>(persons);
+            IEnumerable<User> persons =  await _personService.GetPersonByIdAsync(id, token);
+            return new ActionResult<IEnumerable<User>>(persons);
         }
 
         /// <summary>
@@ -46,12 +46,12 @@ namespace Kaihatsu.Timesheets.WebAPI.Controllers
         /// <returns>IEnumerable<Person></returns>
         [HttpGet]
         [Route("search")]
-        public async Task<ActionResult<IEnumerable<Person>>> SearchPersonByName([FromQuery] string searchTerm, CancellationToken token)
+        public async Task<ActionResult<IEnumerable<User>>> SearchPersonByName([FromQuery] string searchTerm, CancellationToken token)
         {
             _logger.LogTrace("SearchPersonByName searchTerm: {0}", searchTerm);
 
-            IEnumerable<Person> persons = await _personService.SearchPersonByNameAsync(searchTerm, token);
-            return new ActionResult<IEnumerable<Person>>(persons);
+            IEnumerable<User> persons = await _personService.SearchPersonByNameAsync(searchTerm, token);
+            return new ActionResult<IEnumerable<User>>(persons);
         }
 
         /// <summary>
@@ -62,12 +62,12 @@ namespace Kaihatsu.Timesheets.WebAPI.Controllers
         /// <param name="token"></param>
         /// <returns>IEnumerable<Person></returns>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Person>>> GetPersonsFromPagination([FromQuery] int skip, [FromQuery] int take, CancellationToken token)
+        public async Task<ActionResult<IEnumerable<User>>> GetPersonsFromPagination([FromQuery] int skip, [FromQuery] int take, CancellationToken token)
         {
             _logger.LogTrace("GetPersonsFromPagination skip: {0}, take: " + take, skip);
 
-            IEnumerable<Person> persons = await _personService.GetPersonsFromPaginationAsync(skip, take, token);
-            return new ActionResult<IEnumerable<Person>>(persons);  
+            IEnumerable<User> persons = await _personService.GetPersonsFromPaginationAsync(skip, take, token);
+            return new ActionResult<IEnumerable<User>>(persons);  
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace Kaihatsu.Timesheets.WebAPI.Controllers
         /// <param name="token"></param>
         /// <returns>200-OK</returns>
         [HttpPost]     
-        public async Task<ActionResult> CreatePerson([FromBody] Person entity, CancellationToken token)
+        public async Task<ActionResult> CreatePerson([FromBody] User entity, CancellationToken token)
         {
             _logger.LogTrace("CreatePerson");
 
@@ -92,7 +92,7 @@ namespace Kaihatsu.Timesheets.WebAPI.Controllers
         /// <param name="token"></param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<ActionResult> UpdatePerson([FromBody] Person person, CancellationToken token)
+        public async Task<ActionResult> UpdatePerson([FromBody] User person, CancellationToken token)
         {
             _logger.LogTrace("CreatePerson");
 

@@ -8,13 +8,13 @@ using System.Threading;
 
 namespace Kaihatsu.Timesheets.Core.Abstraction.Services
 {
-    public interface IRepositoryService<TEntity>
-        where TEntity : ItemBase
+    public interface IRepositoryService<T>
+        where T : ItemBase
     {
         //CRUD
-        Task CreateAsync(TEntity entity, CancellationToken token);
-        Task<IQueryable<TEntity>> ReadAllAsync(CancellationToken token);
-        Task UpdateAsync(TEntity entity, CancellationToken token);
-        Task DeleteAsync(TEntity entity, CancellationToken token);
+        Task CreateAsync(T entity, CancellationToken cancellationToken = default);
+        Task<IQueryable<T>> ReadAllAsync(CancellationToken cancellationToken = default);
+        Task UpdateAsync(T entity, CancellationToken cancellationToken = default);
+        Task DeleteAsync(T entity, CancellationToken cancellationToken = default);
     }
 }

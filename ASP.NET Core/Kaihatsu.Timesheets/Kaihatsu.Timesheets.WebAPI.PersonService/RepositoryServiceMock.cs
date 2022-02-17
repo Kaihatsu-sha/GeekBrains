@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace Kaihatsu.Timesheets.WebAPI.Services
 {
-    internal class RepositoryServiceMock : IRepositoryService<Person>
+    internal class RepositoryServiceMock : IRepositoryService<User>
     {
 
-        public Task CreateAsync(Person entity, CancellationToken token)
+        public Task CreateAsync(User entity, CancellationToken token)
         {
             return Task.Run(() =>
             {
@@ -20,7 +20,7 @@ namespace Kaihatsu.Timesheets.WebAPI.Services
             });
         }
 
-        public Task DeleteAsync(Person entity, CancellationToken token)
+        public Task DeleteAsync(User entity, CancellationToken token)
         {
             return Task.Run(() =>
             {
@@ -28,7 +28,7 @@ namespace Kaihatsu.Timesheets.WebAPI.Services
             });
         }
 
-        public Task<IQueryable<Person>> ReadAllAsync(CancellationToken token)
+        public Task<IQueryable<User>> ReadAllAsync(CancellationToken token)
         {         
             return Task.Run(() =>
             {
@@ -36,11 +36,11 @@ namespace Kaihatsu.Timesheets.WebAPI.Services
             });
         }
 
-        public Task UpdateAsync(Person entity, CancellationToken token)
+        public Task UpdateAsync(User entity, CancellationToken token)
         {
             return Task.Run(() =>
             {
-                Person remove = PersonDbMock.Table.FirstOrDefault(x => x.Id == entity.Id);
+                User remove = PersonDbMock.Table.FirstOrDefault(x => x.Id == entity.Id);
 
                 PersonDbMock.Table.Remove(remove);
                 PersonDbMock.Table.Add(entity);

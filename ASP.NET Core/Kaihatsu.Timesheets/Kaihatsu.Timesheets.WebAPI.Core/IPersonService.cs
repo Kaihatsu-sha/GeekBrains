@@ -9,11 +9,11 @@ namespace Kaihatsu.Timesheets.WebAPI.Core
 {
     public interface IPersonService
     {
-        Task CreateAsync(Person entity, CancellationToken token);
-        Task<IEnumerable<Person>> GetPersonByIdAsync(int id, CancellationToken token);
-        Task<IEnumerable<Person>> SearchPersonByNameAsync(string name, CancellationToken token);
-        Task<IEnumerable<Person>> GetPersonsFromPaginationAsync(int skip, int take, CancellationToken token); 
-        Task UpdateAsync(Person entity, CancellationToken token);
+        Task CreateAsync(User entity, CancellationToken token);
+        Task<IEnumerable<User>> GetPersonByIdAsync(int id, CancellationToken token);
+        Task<IEnumerable<User>> SearchPersonByNameAsync(string name, CancellationToken token);
+        Task<IEnumerable<User>> GetPersonsFromPaginationAsync(int skip, int take, CancellationToken token); 
+        Task UpdateAsync(User entity, CancellationToken token);
         Task DeletePersonByIdAsync(int id, CancellationToken token);
     }
 }

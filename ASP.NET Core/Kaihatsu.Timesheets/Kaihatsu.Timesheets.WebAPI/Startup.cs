@@ -4,6 +4,7 @@ using Kaihatsu.Timesheets.WebAPI.Controllers;
 using Kaihatsu.Timesheets.WebAPI.Core;
 using Kaihatsu.Timesheets.WebAPI.Data;
 using Kaihatsu.Timesheets.WebAPI.Services;
+using Kaihatsu.Timesheets.Core.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Kaihatsu.Timesheets.Core.Repository.Service;
 
 namespace Kaihatsu.Timesheets.WebAPI
 {
@@ -33,7 +35,9 @@ namespace Kaihatsu.Timesheets.WebAPI
         {
 
             services.AddControllers();
-            services.AddScoped<ILoggerService<PersonsController>, LoggerService<PersonsController>>();
+            services.AddEfContext();
+            services.AddScoped(typeof(IRepositoryService<>), typeof(RepositoryService<>));
+            services.AddScoped(typeof(ILoggerService<>), typeof(LoggerAdapterService<>));
             services.AddScoped<IPersonService, PersonService>();
             
             services.AddSwaggerGen(c =>
