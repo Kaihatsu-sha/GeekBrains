@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Kaihatsu.Timesheets.Core.Abstraction\Kaihatsu.Timesheets.Core.Abstraction.csproj" />
     <ProjectReference Include="..\Kaihatsu.Timesheets.WebAPI.Data\Kaihatsu.Timesheets.WebAPI.Data.csproj" />
   </ItemGroup>
 

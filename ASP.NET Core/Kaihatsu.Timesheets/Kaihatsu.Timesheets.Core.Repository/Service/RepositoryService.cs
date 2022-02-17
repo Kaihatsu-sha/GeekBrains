@@ -19,32 +19,32 @@ namespace Kaihatsu.Timesheets.Core.Repository.Service
             _dbContext = dbContext;
         }
 
-        public async Task CreateAsync(T entity, CancellationToken cancellationToken)//TODO : Как вернуть созданную сущность? <T>
+        public async Task CreateAsync(T entity, CancellationToken cancellationToken = default)//TODO : Как вернуть созданную сущность? <T>
         {
-            EntityEntry<T> entityEntry = await _dbContext.Set<T>().AddAsync(entity,cancellationToken);
-            await _dbContext.SaveChangesAsync();
+            EntityEntry<T> entityEntry = await _dbContext.Set<T>().AddAsync(entity, cancellationToken);
+            await _dbContext.SaveChangesAsync(cancellationToken);
             //return entityEntry.Entity;
         }
 
-        public async Task DeleteAsync(T entity, CancellationToken cancellationToken)
+        public async Task DeleteAsync(T entity, CancellationToken cancellationToken = default)
         {
             await Task.Run(() =>
             {
                 T deleteEntity = _dbContext.Set<T>().FirstOrDefault(e => e.Id == entity.Id);
                 _dbContext.Remove(deleteEntity);
-                _dbContext.SaveChanges();
+                _dbContext.SaveChangesAsync(cancellationToken);
             });
         }
 
-        public async Task<IQueryable<T>> ReadAllAsync(CancellationToken cancellationToken)
+        public async Task<IQueryable<T>> ReadAllAsync(CancellationToken cancellationToken = default)
         {
             return await Task.Run(() => _dbContext.Set<T>().AsQueryable());
         }
 
-        public async Task UpdateAsync(T entity, CancellationToken cancellationToken)
+        public async Task UpdateAsync(T entity, CancellationToken cancellationToken = default)
         {
             _dbContext.Set<T>().Update(entity);
-            await _dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync(cancellationToken);
         }
     }
 }

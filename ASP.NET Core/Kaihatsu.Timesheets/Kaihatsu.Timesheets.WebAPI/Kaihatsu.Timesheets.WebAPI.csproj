@@ -14,7 +14,7 @@
     <ProjectReference Include="..\Kaihatsu.Timesheets.Core.Repository\Kaihatsu.Timesheets.Core.Repository.csproj" />
     <ProjectReference Include="..\Kaihatsu.Timesheets.WebAPI.Core\Kaihatsu.Timesheets.WebAPI.Core.csproj" />
     <ProjectReference Include="..\Kaihatsu.Timesheets.WebAPI.Data\Kaihatsu.Timesheets.WebAPI.Data.csproj" />
-    <ProjectReference Include="..\Kaihatsu.Timesheets.WebAPI.PersonService\Kaihatsu.Timesheets.WebAPI.Services.csproj" />
+    <ProjectReference Include="..\Kaihatsu.Timesheets.WebAPI.Services\Kaihatsu.Timesheets.WebAPI.Services.csproj" />
   </ItemGroup>
 
 </Project>
