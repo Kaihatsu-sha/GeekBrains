@@ -24,14 +24,14 @@ namespace Kaihatsu.Timesheets.WebAPI.Services
             await _repositoryService.CreateAsync(entity, cancellationToken);
         }
 
-        public async Task DeletePersonByIdAsync(int id, CancellationToken cancellationToken = default)
+        public async Task DeleteByIdAsync(int id, CancellationToken cancellationToken = default)
         {
             IQueryable<User> users = await _repositoryService.ReadAllAsync(cancellationToken);
             User deleteUser = users.FirstOrDefault(item => item.Id == id);
             await _repositoryService.DeleteAsync(deleteUser, cancellationToken);
         }
 
-        public async Task<IReadOnlyCollection<User>> GetPersonByIdAsync(int id, CancellationToken cancellationToken = default)
+        public async Task<IReadOnlyCollection<User>> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
             IQueryable<User> allUsers = await _repositoryService.ReadAllAsync(cancellationToken);
             IReadOnlyCollection<User> users = allUsers.Where(item => item.Id == id).ToList();
@@ -39,7 +39,7 @@ namespace Kaihatsu.Timesheets.WebAPI.Services
             return users;
         }
 
-        public async Task<IReadOnlyCollection<User>> GetPersonsFromPaginationAsync(int skip, int take, CancellationToken cancellationToken = default)
+        public async Task<IReadOnlyCollection<User>> GetFromPaginationAsync(int skip, int take, CancellationToken cancellationToken = default)
         {
             IQueryable<User> allUsers = await _repositoryService.ReadAllAsync(cancellationToken);
             IReadOnlyCollection<User> users = allUsers
@@ -50,7 +50,7 @@ namespace Kaihatsu.Timesheets.WebAPI.Services
             return users;
         }
 
-        public async Task<IReadOnlyCollection<User>> SearchPersonByNameAsync(string name, CancellationToken cancellationToken = default)
+        public async Task<IReadOnlyCollection<User>> SearchByNameAsync(string name, CancellationToken cancellationToken = default)
         {
             IQueryable<User> allUsers = await _repositoryService.ReadAllAsync(cancellationToken);
             IReadOnlyCollection<User> users = allUsers

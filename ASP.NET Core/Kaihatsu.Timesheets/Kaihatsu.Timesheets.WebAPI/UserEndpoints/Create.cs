@@ -9,9 +9,9 @@ namespace Kaihatsu.Timesheets.WebAPI.UserEndpoints
     public partial class UserEndpoint
     {
         [HttpPost]
-        public async Task<ActionResult> CreatePerson([FromBody] User entity, CancellationToken token)
+        public async Task<ActionResult> CreateUser([FromBody] User entity, CancellationToken token)
         {
-            _logger.LogTrace("CreatePerson");
+            _logger.LogTrace("CreateUser {0} {1}", entity, token);
 
             await _userService.CreateAsync(entity, token);
             return new OkResult();

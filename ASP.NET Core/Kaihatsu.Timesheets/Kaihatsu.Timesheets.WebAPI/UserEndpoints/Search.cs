@@ -10,12 +10,12 @@ namespace Kaihatsu.Timesheets.WebAPI.UserEndpoints
     {
         [HttpGet]
         [Route("search")]
-        public async Task<ActionResult<IEnumerable<User>>> SearchPersonByName([FromQuery] string searchTerm, CancellationToken token)
+        public async Task<ActionResult<IReadOnlyCollection<User>>> SearchUserByName([FromQuery] string searchTerm, CancellationToken token)
         {
-            _logger.LogTrace("SearchPersonByName searchTerm: {0}", searchTerm);
+            _logger.LogTrace("SearchUserByName searchTerm: {0}", searchTerm);
 
-            IEnumerable<User> persons = await _userService.SearchPersonByNameAsync(searchTerm, token);
-            return new ActionResult<IEnumerable<User>>(persons);
+            IReadOnlyCollection<User> users = await _userService.SearchByNameAsync(searchTerm, token);
+            return new ActionResult<IReadOnlyCollection<User>>(users);
         }
     }
 }

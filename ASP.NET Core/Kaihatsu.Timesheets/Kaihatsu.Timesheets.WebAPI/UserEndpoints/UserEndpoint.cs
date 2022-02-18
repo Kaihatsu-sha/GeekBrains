@@ -8,8 +8,8 @@ namespace Kaihatsu.Timesheets.WebAPI.UserEndpoints
     [ApiController]
     public partial class UserEndpoint : ControllerBase
     {
-        protected readonly ILoggerService<UserEndpoint> _logger;
-        protected readonly IUserService _userService;
+        private readonly ILoggerService<UserEndpoint> _logger;
+        private readonly IUserService _userService;
 
         public UserEndpoint(ILoggerService<UserEndpoint> logger, IUserService service)
         {

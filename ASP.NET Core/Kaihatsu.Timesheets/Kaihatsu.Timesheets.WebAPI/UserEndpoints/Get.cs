@@ -10,20 +10,20 @@ namespace Kaihatsu.Timesheets.WebAPI.UserEndpoints
     {
         [HttpGet]
         [Route("{id}")]
-        public async Task<ActionResult<IEnumerable<User>>> GetPersonById([FromRoute] int id, CancellationToken token)
+        public async Task<ActionResult<IReadOnlyCollection<User>>> GetUserById([FromRoute] int id, CancellationToken token)
         {
-            _logger.LogTrace("GetPersonById id: {0}", id);
-            IEnumerable<User> persons = await _userService.GetPersonByIdAsync(id, token);
-            return new ActionResult<IEnumerable<User>>(persons);
+            _logger.LogTrace("GetUserById id: {0}", id);
+            IReadOnlyCollection<User> users = await _userService.GetByIdAsync(id, token);
+            return new ActionResult<IReadOnlyCollection<User>>(users);
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetPersonsFromPagination([FromQuery] int skip, [FromQuery] int take, CancellationToken token)
+        public async Task<ActionResult<IReadOnlyCollection<User>>> GetUsersFromPagination([FromQuery] int skip, [FromQuery] int take, CancellationToken token)
         {
-            _logger.LogTrace("GetPersonsFromPagination skip: {0}, take: " + take, skip);
+            _logger.LogTrace("GetUsersFromPagination skip: {0}, take: " + take, skip);
 
-            IEnumerable<User> persons = await _userService.GetPersonsFromPaginationAsync(skip, take, token);
-            return new ActionResult<IEnumerable<User>>(persons);
+            IReadOnlyCollection<User> users = await _userService.GetFromPaginationAsync(skip, take, token);
+            return new ActionResult<IReadOnlyCollection<User>>(users);
         }
     }
 }

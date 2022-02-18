@@ -10,11 +10,11 @@ namespace Kaihatsu.Timesheets.WebAPI.UserEndpoints
     {
         [HttpDelete]
         [Route("{id}")]
-        public async Task<ActionResult> DeletePersonById([FromRoute] int id, CancellationToken token)
+        public async Task<ActionResult> DeleteUserById([FromRoute] int id, CancellationToken token)
         {
-            _logger.LogTrace("DeletePersonById id: {0}", id);
+            _logger.LogTrace("DeleteUserById id: {0}", id);
 
-            await _userService.DeletePersonByIdAsync(id, token);
+            await _userService.DeleteByIdAsync(id, token);
             return new OkResult();
         }
     }

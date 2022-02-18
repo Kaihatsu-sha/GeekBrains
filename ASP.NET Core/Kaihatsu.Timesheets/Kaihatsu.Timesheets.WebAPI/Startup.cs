@@ -38,6 +38,7 @@ namespace Kaihatsu.Timesheets.WebAPI
             services.AddScoped(typeof(IRepositoryService<>), typeof(RepositoryService<>));
             services.AddScoped(typeof(ILoggerService<>), typeof(LoggerAdapterService<>));
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
             
             services.AddSwaggerGen(c =>
             {

@@ -9,11 +9,11 @@ namespace Kaihatsu.Timesheets.WebAPI.UserEndpoints
     public partial class UserEndpoint
     {
         [HttpPut]
-        public async Task<ActionResult> UpdatePerson([FromBody] User person, CancellationToken token)
+        public async Task<ActionResult> UpdateUser([FromBody] User entity, CancellationToken token)
         {
-            _logger.LogTrace("UpdatePerson");
+            _logger.LogTrace("UpdateUser");
 
-            await _userService.UpdateAsync(person, token);
+            await _userService.UpdateAsync(entity, token);
             return new OkResult();
         }
     }

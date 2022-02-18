@@ -10,6 +10,7 @@ namespace Kaihatsu.Timesheets.Core.Repository
         {
             //Database.EnsureDeleted();
             Database.EnsureCreated();
+            
         }
 
         public DbSet<User> Users { get; set; }
@@ -23,6 +24,14 @@ namespace Kaihatsu.Timesheets.Core.Repository
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder.Entity<User>().Ignore(x => x.Comment);
+            //modelBuilder.Entity<Employee>()
+            //    //.HasOne(e => e.UserId)
+            //    .WithOne();
+
+            //modelBuilder.Entity<Employee>()
+            //   .HasOne<User>()
+            //   .WithMany()
+            //   .HasForeignKey(p => p.UserId);
         }
 
     }
