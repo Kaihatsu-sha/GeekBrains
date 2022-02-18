@@ -34,7 +34,7 @@ namespace Kaihatsu.Timesheets.WebAPI
         {
 
             services.AddControllers();
-            services.AddEfContext();
+            services.AddEfContext(Configuration.GetConnectionString("Postgres"));
             services.AddScoped(typeof(IRepositoryService<>), typeof(RepositoryService<>));
             services.AddScoped(typeof(ILoggerService<>), typeof(LoggerAdapterService<>));
             services.AddScoped<IUserService, UserService>();
