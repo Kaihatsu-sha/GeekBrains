@@ -19,7 +19,7 @@ namespace Kaihatsu.Timesheets.Core.Repository.Service
             _dbContext = dbContext;
         }
 
-        public async Task CreateAsync(T entity, CancellationToken cancellationToken = default)//TODO : Как вернуть созданную сущность? <T>
+        public async Task CreateAsync(T entity, CancellationToken cancellationToken = default)
         {
             EntityEntry<T> entityEntry = await _dbContext.Set<T>().AddAsync(entity, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
