@@ -46,10 +46,6 @@ namespace Kaihatsu.Timesheets.WebAPI
 
 
             services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Kaihatsu.Timesheets.WebAPI", Version = "v1" });
-            //});
-
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Kaihatsu.Timesheets.WebAPI", Version = "v1" });
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme

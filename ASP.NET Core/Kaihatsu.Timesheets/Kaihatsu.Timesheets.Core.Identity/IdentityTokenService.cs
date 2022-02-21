@@ -119,24 +119,5 @@ namespace Kaihatsu.Timesheets.Core.Identity
 
             return (token, refreshToken.Token);
         }
-
-        private bool CheckPassword()
-        {
-            byte[] salt = new byte[128 / 8];
-            using (var rng = new RNGCryptoServiceProvider())
-            {
-                rng.GetNonZeroBytes(salt);
-            }
-
-            string hashSet =  Convert.ToBase64String(KeyDerivation.Pbkdf2(
-                password:"",
-                salt,
-                KeyDerivationPrf.HMACSHA256,
-                10_000,
-                256/8));
-
-
-            return false;
-        }
     }
 }
