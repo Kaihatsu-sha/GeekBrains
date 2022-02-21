@@ -19,48 +19,39 @@ namespace Kaihatsu.Timesheets.WebAPI.Services
             _repositoryService = new RepositoryServiceMock();
         }
 
-        public Task CreateAsync(Person entity, CancellationToken token)
+        public async Task CreateAsync(Person entity, CancellationToken token)
         {
-            return _repositoryService.CreateAsync(entity, token);
+            await _repositoryService.CreateAsync(entity, token);
         }
 
-        public Task DeletePersonByIdAsync(int id, CancellationToken token)
+        public async Task DeletePersonByIdAsync(int id, CancellationToken token)
         {
-            Person person = _repositoryService.ReadAllAsync(token).Result.FirstOrDefault(item => item.Id == id);
-            return _repositoryService.DeleteAsync(person, token);
+            IQueryable<Person> persons = await _repositoryService.ReadAllAsync(token);
+            Person person = persons.FirstOrDefault(item => item.Id == id);
+            await _repositoryService.DeleteAsync(person, token);
         }
 
-        public Task<IEnumerable<Person>> GetPersonByIdAsync(int id, CancellationToken token)
+        public async Task<IEnumerable<Person>> GetPersonByIdAsync(int id, CancellationToken token)
         {
-            IEnumerable<Person> persons = _repositoryService.ReadAllAsync(token).Result.Where(item => item.Id == id);
-
-            return Task.Run(() => persons);
+            IQueryable<Person> persons = await _repositoryService.ReadAllAsync(token);
+            return persons.Where(item => item.Id == id);
         }
 
-        public Task<IEnumerable<Person>> GetPersonsFromPaginationAsync(int skip, int take, CancellationToken token)
+        public async Task<IEnumerable<Person>> GetPersonsFromPaginationAsync(int skip, int take, CancellationToken token)
         {
-            IEnumerable<Person> persons = _repositoryService
-                .ReadAllAsync(token)
-                .Result
-                .Skip(skip)
-                .Take(take);
-
-            return Task.Run(() => persons);
+            IQueryable<Person> persons = await _repositoryService.ReadAllAsync(token);
+            return persons.Skip(skip).Take(take);
         }
 
-        public Task<IEnumerable<Person>> SearchPersonByNameAsync(string name, CancellationToken token)
+        public async Task<IEnumerable<Person>> SearchPersonByNameAsync(string name, CancellationToken token)
         {
-            IEnumerable<Person> persons = _repositoryService
-                .ReadAllAsync(token)
-                .Result
-                .Where(item => item.FirstName.Contains(name) || item.LastName.Contains(name));
-
-            return Task.Run(() => persons);
+            IQueryable<Person> persons = await _repositoryService.ReadAllAsync(token);
+            return persons.Where(item => item.FirstName.Contains(name) || item.LastName.Contains(name));
         }
 
-        public Task UpdateAsync(Person entity, CancellationToken token)
+        public async Task UpdateAsync(Person entity, CancellationToken token)
         {
-            return _repositoryService.UpdateAsync(entity, token);
+           await _repositoryService.UpdateAsync(entity, token);
         }
     }
 }
