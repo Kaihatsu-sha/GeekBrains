@@ -8,9 +8,6 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
-using Microsoft.AspNetCore.Cryptography;
-using System.Security.Cryptography;
-using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
 namespace Kaihatsu.Timesheets.Core.Identity
 {
