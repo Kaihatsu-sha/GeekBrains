@@ -1,6 +1,5 @@
 ﻿using Kaihatsu.Timesheets.WebAPI.Data;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
