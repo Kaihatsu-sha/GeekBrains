@@ -13,7 +13,6 @@ namespace Kaihatsu.Timesheets.WebAPI.Data
 		public bool IsApproved { get; private set; }
 		public float Amount { get; set; }
 
-		public Invoice InvoiceId { get; set; }
 		public void Approve()
 		{
 			IsApproved = true;
