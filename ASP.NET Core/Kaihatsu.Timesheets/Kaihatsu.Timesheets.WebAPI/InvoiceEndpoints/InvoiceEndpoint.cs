@@ -1,5 +1,6 @@
 ﻿using Kaihatsu.Timesheets.Core.Abstraction.Services;
 using Kaihatsu.Timesheets.WebAPI.Core;
+using Kaihatsu.Timesheets.WebAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,9 +12,9 @@ namespace Kaihatsu.Timesheets.WebAPI.InvoiceEndpoints
     public partial class InvoiceEndpoint : ControllerBase
     {
         private readonly ILoggerService<InvoiceEndpoint> _logger;
-        private readonly IInvoiceService _service;
+        private readonly InvoiceService _service;
 
-        public InvoiceEndpoint(ILoggerService<InvoiceEndpoint> logger, IInvoiceService service)
+        public InvoiceEndpoint(ILoggerService<InvoiceEndpoint> logger, InvoiceService service)
         {
             _logger = logger;
             _service = service;
