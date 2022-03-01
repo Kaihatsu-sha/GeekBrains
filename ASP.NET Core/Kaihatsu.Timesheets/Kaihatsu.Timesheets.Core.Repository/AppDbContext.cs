@@ -12,6 +12,8 @@ namespace Kaihatsu.Timesheets.Core.Repository
 
         public DbSet<User> Users { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Contract> Contracts { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<Sheet> Sheets { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
