@@ -11,17 +11,29 @@ namespace Kaihatsu.Timesheets.WebAPI.Data
     {
         public DateTime DateStart { get; protected set; }
         public DateTime DateEnd { get; protected set; }
+        public float Sum { get; protected set; }
         public List<Sheet> Sheets { get; set; } = new List<Sheet>();
+        public virtual Contract Contract { get; protected set; }
 
 
-        public void Create()
+        public void Create(Contract contract)
         {
+            Contract = contract;
             DateStart = DateTime.Now;
         }
 
         public void IncludeSheets(IEnumerable<Sheet> sheets)
         {
             Sheets.AddRange(sheets);
+        }
+
+        public void CalculateSum()
+        {
+            long spentHours = 0;
+            Sheets.ForEach(sheet => spentHours += sheet.SpentHours);
+
+            _ = Contract?.CostHourWork ?? throw new NullReferenceException($"{nameof(Contract.CostHourWork)}");
+            Sum = Contract.CostHourWork * spentHours;
         }
     }
 }
