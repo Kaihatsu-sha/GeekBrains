@@ -9,11 +9,13 @@ namespace Kaihatsu.Timesheets.WebAPI.Data
 {
     public class Invoice : ItemBase
     {
-        public DateTime DateStart { get; protected set; }
-        public DateTime DateEnd { get; protected set; }
-        public float Sum { get; protected set; }
+        public DateTime DateStart { get; private set; }
+        public DateTime DateEnd { get; private set; }
+        public float Sum { get; private set; }
+        public DateTime ApproveDate { get; private set; }
+        public bool IsApproved { get; private set; }
         public List<Sheet> Sheets { get; set; } = new List<Sheet>();
-        public virtual Contract Contract { get; protected set; }
+        public virtual Contract Contract { get; private set; }
 
 
         public void Create(Contract contract)
@@ -34,6 +36,12 @@ namespace Kaihatsu.Timesheets.WebAPI.Data
 
             _ = Contract?.CostHourWork ?? throw new NullReferenceException($"{nameof(Contract.CostHourWork)}");
             Sum = Contract.CostHourWork * spentHours;
+        }
+
+        public void Approve()
+        {
+            IsApproved = true;
+            ApproveDate = DateTime.Now;
         }
     }
 }

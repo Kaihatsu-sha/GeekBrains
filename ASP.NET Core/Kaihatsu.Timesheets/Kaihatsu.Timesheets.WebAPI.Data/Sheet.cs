@@ -9,19 +9,14 @@ namespace Kaihatsu.Timesheets.WebAPI.Data
 {
 	public class Sheet : ItemBase
 	{
-		public DateTime ApproveDate { get; private set; }
-		public bool IsApproved { get; private set; }
 		public int SpentHours { get; private set; }
 
-		public void Create(int spentHours)
-        {
-			SpentHours = spentHours;
-		}
+		public virtual Contract Contract { get; private set; }
 
-		public void Approve()
-		{
-			IsApproved = true;
-			ApproveDate = DateTime.Now;
+		public void Create(int spentHours, Contract contract)
+        {
+			Contract = contract;
+			SpentHours = spentHours;
 		}
 	}
 }
