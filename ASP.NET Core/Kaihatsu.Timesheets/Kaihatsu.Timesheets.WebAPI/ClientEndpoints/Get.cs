@@ -10,19 +10,19 @@ namespace Kaihatsu.Timesheets.WebAPI.ClientEndpoints
     {
         [HttpGet]
         [Route("{id}")]
-        public async Task<ActionResult<IReadOnlyCollection<Client>>> GetClientById([FromRoute] int id, CancellationToken token)
+        public async Task<ActionResult<Client>> GetClientById([FromRoute] int id, CancellationToken token)
         {
             _logger.LogTrace("GetClientById id: {0}", id);
-            IReadOnlyCollection<Client> entities = await _service.GetByIdAsync(id, token);
-            return new ActionResult<IReadOnlyCollection<Client>>(entities);
+            Client client = await _service.GetByIdAsync(id, token);
+            return new ActionResult<Client>(client);
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyCollection<Employee>>> GetClientsFromPagination([FromQuery] int skip, [FromQuery] int take, CancellationToken token)
+        public async Task<ActionResult<IReadOnlyCollection<Client>>> GetClients( CancellationToken token)
         {
-            _logger.LogTrace("GetClientsFromPagination skip: {0}, take: {1}" + take, skip);
+            _logger.LogTrace("GetClients");
 
-            IReadOnlyCollection<Client> entities = await _service.GetFromPaginationAsync(skip, take, token);
+            IReadOnlyCollection<Client> entities = await _service.GetClietnsAsync(token);
             return new ActionResult<IReadOnlyCollection<Client>>(entities);
         }
     }
