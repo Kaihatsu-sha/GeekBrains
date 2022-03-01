@@ -1,5 +1,6 @@
 ﻿using Kaihatsu.Timesheets.Core.Abstraction.Services;
 using Kaihatsu.Timesheets.WebAPI.Core;
+using Kaihatsu.Timesheets.WebAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,9 +12,9 @@ namespace Kaihatsu.Timesheets.WebAPI.SheetEndpoints
     public partial class SheetEndpoint : ControllerBase
     {
         private readonly ILoggerService<SheetEndpoint> _logger;
-        private readonly ISheetService _service;
+        private readonly SheetService _service;
 
-        public SheetEndpoint(ILoggerService<SheetEndpoint> logger, ISheetService service)
+        public SheetEndpoint(ILoggerService<SheetEndpoint> logger, SheetService service)
         {
             _logger = logger;
             _service = service;

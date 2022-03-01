@@ -10,12 +10,12 @@ namespace Kaihatsu.Timesheets.WebAPI.SheetEndpoints
     public partial class SheetEndpoint
     {
         [HttpPost]
-        public async Task<ActionResult> CreateSheet([FromBody] int SpentHours,[FromBody] long contractId, CancellationToken token)
+        public async Task<ActionResult> CreateSheet([FromBody] SheetDto dto, CancellationToken token)
         {
-            _logger.LogTrace("CreateSheet {0} {1}", SpentHours, contractId);
+            _logger.LogTrace("CreateSheet {0} {1}", dto.SpentHours, dto.ContractId);
             try
             {
-                await _service.CreateAsync(SpentHours, contractId, token);
+                await _service.CreateAsync(dto.SpentHours, dto.ContractId, token);
             }
             catch (NullReferenceException nullReference)
             {
