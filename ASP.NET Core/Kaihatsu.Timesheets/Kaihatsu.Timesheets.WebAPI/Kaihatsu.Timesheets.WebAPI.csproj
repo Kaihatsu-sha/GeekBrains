@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Kaihatsu.Timesheets.Core.Abstraction\Kaihatsu.Timesheets.Core.Abstraction.csproj" />
+    <ProjectReference Include="..\Kaihatsu.Timesheets.Core.Identity\Kaihatsu.Timesheets.Core.Identity.csproj" />
     <ProjectReference Include="..\Kaihatsu.Timesheets.Core.Logger\Kaihatsu.Timesheets.Core.Logger.csproj" />
     <ProjectReference Include="..\Kaihatsu.Timesheets.Core.Repository\Kaihatsu.Timesheets.Core.Repository.csproj" />
     <ProjectReference Include="..\Kaihatsu.Timesheets.WebAPI.Core\Kaihatsu.Timesheets.WebAPI.Core.csproj" />
