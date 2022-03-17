@@ -4,6 +4,9 @@ using System;
 
 namespace Kaihatsu.Timesheets.WebAPI.Data
 {
+    /// <summary>
+    /// Пользователь системы
+    /// </summary>
     public class User : ItemBase
     {
         [Required]
@@ -19,7 +22,6 @@ namespace Kaihatsu.Timesheets.WebAPI.Data
         [Required]
         [StringLength(36, MinimumLength = 5)]
         public string PasswordHash { get; set; }//FIX: Хранение пароля
-        public string Company { get; set; }
         [Range(18,121)]
         public int Age { get; set; }
     }

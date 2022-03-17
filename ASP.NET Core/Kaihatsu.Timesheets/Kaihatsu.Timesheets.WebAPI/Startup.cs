@@ -40,6 +40,10 @@ namespace Kaihatsu.Timesheets.WebAPI
             services.AddScoped(typeof(ILoggerService<>), typeof(LoggerAdapterService<>));
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<ClientService>();
+            services.AddScoped<ContractService>();
+            services.AddScoped<SheetService>();
+            services.AddScoped<InvoiceService>();
             services.AddIdentity();
             services.AddIdentityService();
 

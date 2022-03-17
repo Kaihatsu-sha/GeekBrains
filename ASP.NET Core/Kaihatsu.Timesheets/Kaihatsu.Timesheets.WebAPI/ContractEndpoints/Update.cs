@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Kaihatsu.Timesheets.WebAPI.EmployeeEndpoints
+namespace Kaihatsu.Timesheets.WebAPI.ContractEndpoints
 {
-    public partial class EmployeeEndpoint
+    public partial class ContractEndpoint
     {
         [HttpPut]
-        public async Task<ActionResult> UpdateEmployee([FromBody] Employee entity, CancellationToken token)
+        public async Task<ActionResult> UpdateContract ([FromBody] Contract entity, CancellationToken token)
         {
-            _logger.LogTrace("UpdateEmployee {0}", entity);
+            _logger.LogTrace("UpdateContract {0}", entity);
 
             await _service.UpdateAsync(entity, token);
             return new OkResult();
