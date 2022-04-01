@@ -1,0 +1,25 @@
+﻿<Window x:Class="Kaihatsu.ASPMVC.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kaihatsu.ASPMVC.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        MinHeight="400" MinWidth="300"
+        MaxHeight="450" MaxWidth="450"
+        Height="400" Width="300" >
+    <Grid>
+        <Label Content="Ползунок изменения скорости вывода чисел." Margin="17,17,17,0" VerticalAlignment="Top" Height="25"/>
+        <Slider Margin="17,52,17,0" VerticalAlignment="Top" Height="25"
+                Minimum="1" Maximum="5"
+                Value="1"
+                SmallChange="1"
+                ValueChanged="Slider_ValueChanged"                
+                TickPlacement="BottomRight" TickFrequency="1" Foreground="#FF140707" Background="#FFF9F9F9"/>
+
+        <Button x:Name="StartBtn" Click="StartBtnClick" Content="Start" Margin="17,92,0,0" VerticalAlignment="Top" Width="75" HorizontalAlignment="Left"/>
+        <Button x:Name="StopBtn" Click="CancelBtnClick"  Content="Stop" Margin="0,92,17,0" VerticalAlignment="Top" Width="75" HorizontalAlignment="Right" IsEnabled="False"/>
+        <TextBlock x:Name="FibonacceTextBlock" Margin="17,140,17,17" TextWrapping="Wrap" Text="TextBlock"/>
+    </Grid>
+</Window>
