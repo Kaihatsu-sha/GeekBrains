@@ -2,6 +2,7 @@
 
 
 using Kaihatsu.ASPMVC.CreationalPatterns;
+using System.Diagnostics;
 
 ILogger iLogger = ConsoleLogger.Logger;
 iLogger.Log("Test console logger");
@@ -44,4 +45,25 @@ loggerFactory.Type = LoggerFactory.LoggerType.Console;
 // Какой смыслл передавать фабрику?
 LoggerWorker worker = new LoggerWorker(loggerFactory, messages);
 
+// Построитель
+EMailBuilderFluent builder = new EMailBuilderFluent();
+EMail eMail = builder
+    .SetRecipient("support@gb.ru")
+    .SetSubject("Lesson3")
+    .SetTitle("Hi!")
+    .SetBody("Great lesson, I'm impressed.")
+    .SetSignature("Thank you for your attention!")
+    .Build();
+
 Console.ReadLine();
+
+
+public Process? Execute(string fileName, string args, bool useShellExecute = true)
+{
+    return Process.Start(new ProcessStartInfo(fileName, args){ UseShellExecute = useShellExecute });// Фабричный метод
+}
+
+public Process? ShowInExploree(string fullPathToFile)
+{
+    return Process.Start("explorer", $"/select,\"{fullPathToFile}\"");
+}

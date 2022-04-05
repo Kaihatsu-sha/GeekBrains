@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Kaihatsu.ASPMVC.CreationalPatterns;
 
+/// Фабрика
 internal class LoggerFactory : ILoggerFactory
 {
     public enum LoggerType
