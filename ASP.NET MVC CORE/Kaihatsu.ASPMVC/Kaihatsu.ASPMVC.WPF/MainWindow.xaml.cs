@@ -12,28 +12,31 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Kaihatsu.WPF.InformationWindows;
 
-namespace Kaihatsu.ASPMVC.WPF
+namespace Kaihatsu.ASPMVC.WPF;
+
+/// <summary>
+/// Interaction logic for MainWindow.xaml
+/// </summary>
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+
+    public MainWindow()
     {
-        public CustomCommand _buttonComand;// => new CustomCommand();
+        InitializeComponent();
+        DataContext = this;
+    }
 
-        public CustomCommand ButtonComand
-        {
-            get
-            {
-                return _buttonComand ??= new CustomCommand();                  
-            }
-        }
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {;
+        IWindow errorWindow = WindowsFactory
+            .GetFactory(this, WindowType.Confirm)
+            .Create(
+            title : "Заголовок",
+            header :"Упс!!! Возникла ошибка",
+            description :"Очень большое описание ошибки");
 
-        public MainWindow()
-        {
-            InitializeComponent();
-            DataContext = this;
-        }
+        errorWindow.ShowWindow();
     }
 }
