@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kaihatsu.ASPMVC.WPF"
         xmlns:vm="clr-namespace:Kaihatsu.ASPMVC.WPF.ViewModels"
+        xmlns:wt="clr-namespace:Kaihatsu.WPF.InformationWindows;assembly=Kaihatsu.WPF.InformationWindows"
         mc:Ignorable="d"
         Title="{Binding Title}" 
         Height="250" 
@@ -19,12 +20,14 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.ColumnSpan="2">
             <Button Content="Show Error Window"
-                    Command="{Binding ShowErrorWindow}"
-                    CommandParameter="Error"/>
+                    Command="{Binding ShowWindow}"
+                    CommandParameter="{x:Static wt:WindowType.Error}"/>
             <Button Content="Show Information Window"
-                    Command="{Binding ShowInformationWindow}"/>
+                    Command="{Binding ShowWindow}"
+                    CommandParameter="{x:Static wt:WindowType.Information}"/>
             <Button Content="Show Confirm Window"
-                    Command="{Binding ShowConfirmWindow}"/>
+                    Command="{Binding ShowWindow}"
+                    CommandParameter="{x:Static wt:WindowType.Confirm}"/>
             <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
     </Grid>

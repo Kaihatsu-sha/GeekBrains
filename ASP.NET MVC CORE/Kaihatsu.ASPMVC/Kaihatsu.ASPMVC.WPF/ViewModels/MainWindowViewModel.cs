@@ -15,65 +15,57 @@ internal class MainWindowViewModel : ViewModelBase
         set => Set<string>(ref _title, value);
     }
 
-    private LambdaCommand _errorWindow;
-    private LambdaCommand _confirmWindow;
-    private LambdaCommand _informationWindow;
+    private LambdaCommand _showWindow;
 
-    public LambdaCommand ShowErrorWindow
+    public LambdaCommand ShowWindow
     {
         get
         {
-            return _errorWindow ??= new LambdaCommand(ExecuteError);
+            return _showWindow ??= new LambdaCommand(ExecuteMain);
         }
     }
 
-    public LambdaCommand ShowConfirmWindow
+
+    private void ExecuteMain(object? parameter)
     {
-        get
+        if (parameter is null)
+            return;
+
+        WindowType type = WindowType.Information;
+
+        if (parameter is WindowType)
+            type = (WindowType)parameter;
+
+        switch (type)
         {
-            return _confirmWindow ??= new LambdaCommand(ExecuteConfirm);
-        }
-    }
-
-    public LambdaCommand ShowInformationWindow
-    {
-        get
-        {
-            return _informationWindow ??= new LambdaCommand(ExecuteInfo);
-        }
-    }
-
-    private void ExecuteInfo(object? parameter)
-    {
-        WindowsFactory
-            .GetFactory(App.Current.MainWindow, WindowType.Information)
+            case WindowType.Information:
+                WindowsFactory
+            .GetFactory(App.Current.MainWindow, type)
             .Create(
                 title: "Информация",
                 header: "Внимание!!!",
                 description: "Ставки на спорт")
             .ShowWindow();
-    }
-
-    private void ExecuteError(object? parameter)
-    {
-        WindowsFactory
-            .GetFactory(App.Current.MainWindow, WindowType.Information)
+                break;
+            case WindowType.Error:
+                WindowsFactory
+            .GetFactory(App.Current.MainWindow, type)
             .Create(
                 title: "Ошибка",
                 header: "Произошла ошибка",
                 description: "NullReferenceException")
             .ShowWindow();
-    }
-
-    private void ExecuteConfirm(object? parameter)
-    {
-        WindowsFactory
-            .GetFactory(App.Current.MainWindow, WindowType.Information)
+                break;
+            case WindowType.Confirm:
+                WindowsFactory
+            .GetFactory(App.Current.MainWindow, type)
             .Create(
                 title: "Подтверждение",
                 header: "Подтвердите действие",
                 description: "Вы точно уверены??")
             .ShowWindow();
+                break;
+        }
     }
 
 }
