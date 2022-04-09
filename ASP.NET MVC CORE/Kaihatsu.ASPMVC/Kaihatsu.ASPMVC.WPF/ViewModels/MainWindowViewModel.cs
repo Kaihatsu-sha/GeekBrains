@@ -1,9 +1,12 @@
 ﻿using Kaihatsu.ASPMVC.WPF.Infrastructure.Commands;
+using Kaihatsu.ASPMVC.WPF.Infrastructure.Extensions;
 using Kaihatsu.ASPMVC.WPF.ViewModels.Base;
 using Kaihatsu.WPF.InformationWindows;
+using System.Windows.Input;
 
 namespace Kaihatsu.ASPMVC.WPF.ViewModels;
 
+// Microsoft.Xaml.Behaviors.Wpf - события
 internal class MainWindowViewModel : ViewModelBase
 {
 
@@ -15,13 +18,14 @@ internal class MainWindowViewModel : ViewModelBase
         set => Set<string>(ref _title, value);
     }
 
-    private LambdaCommand _showWindow;
+    private ICommand _showWindow;
 
-    public LambdaCommand ShowWindow
+    public ICommand ShowWindow
     {
         get
         {
-            return _showWindow ??= new LambdaCommand(ExecuteMain);
+            //return _showWindow ??= new DebugCommand(new LambdaCommand(ExecuteMain));
+            return _showWindow ??= new LambdaCommand(ExecuteMain).Debug();
         }
     }
 
