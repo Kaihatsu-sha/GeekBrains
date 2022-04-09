@@ -21,22 +21,59 @@ namespace Kaihatsu.ASPMVC.WPF;
 /// </summary>
 public partial class MainWindow : Window
 {
+    private readonly IWindowsFactory _errorWindowsFactory;
+    private readonly IWindowsFactory _confirmWindowsFactory;
+    private readonly IWindowsFactory _informationWindowsFactory;
+
+    public CreateWindowCommand _errorWindow;
+    public CreateWindowCommand _confirmWindow;
+    public CreateWindowCommand _informationWindow;
+
+    WindowContent InformationContent;
+    WindowContent ConfirmContent;
+    WindowContent ErrorContent;
+
+
+
+    public CreateWindowCommand ShowErrorWindow
+    {
+        get
+        {
+            return _errorWindow ??= new CreateWindowCommand(_errorWindowsFactory, ErrorContent);
+        }
+    }
+
+    public CreateWindowCommand ShowConfirmWindow
+    {
+        get
+        {
+            return _confirmWindow ??= new CreateWindowCommand(_confirmWindowsFactory, ConfirmContent);
+        }
+    }
+
+    public CreateWindowCommand ShowInformationWindow
+    {
+        get
+        {
+            return _informationWindow ??= new CreateWindowCommand(_informationWindowsFactory, InformationContent);
+        }
+    }
 
     public MainWindow()
     {
+        CreateWindowContent();
         InitializeComponent();
         DataContext = this;
+
+        _errorWindowsFactory = WindowsFactory.GetFactory(this, WindowType.Error);
+        _confirmWindowsFactory = WindowsFactory.GetFactory(this, WindowType.Confirm);
+        _informationWindowsFactory = WindowsFactory.GetFactory(this, WindowType.Information);
     }
 
-    private void Button_Click(object sender, RoutedEventArgs e)
-    {;
-        IWindow errorWindow = WindowsFactory
-            .GetFactory(this, WindowType.Confirm)
-            .Create(
-            title : "Заголовок",
-            header :"Упс!!! Возникла ошибка",
-            description :"Очень большое описание ошибки");
-
-        errorWindow.ShowWindow();
+    private void CreateWindowContent()
+    {
+        InformationContent = new WindowContent { Title = "Информация", Header = "Внимание!!!", Description = "Ставки на спорт" };
+        ConfirmContent = new WindowContent { Title = "Подтверждение", Header = "Подтвердите действие", Description = "Вы точно уверены??" };
+        ErrorContent = new WindowContent { Title = "Ошибка", Header = "Произошла ошибка", Description = "NullReferenceException" };
     }
 }

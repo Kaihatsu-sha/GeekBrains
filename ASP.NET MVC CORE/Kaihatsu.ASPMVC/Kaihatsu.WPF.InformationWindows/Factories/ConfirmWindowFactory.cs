@@ -18,7 +18,7 @@ internal class ConfirmWindowFactory : IWindowsFactory
 
     public IWindow Create()
     {
-        return new ConfirmWindow(_owner);
+        return Create("Confirm", "default header", "default description");
     }
 
     public IWindow Create(string title, string header, string description, double height = 150, double width = 200)

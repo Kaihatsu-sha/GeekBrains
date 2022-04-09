@@ -18,7 +18,7 @@ internal class InformationWindowFactory : IWindowsFactory
 
     public IWindow Create()
     {
-        return new InformationWindow(_owner);
+        return Create("Information", "default header", "default description");
     }
 
     public IWindow Create(string title, string header, string description, double height = 150, double width = 200)

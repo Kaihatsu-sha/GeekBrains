@@ -10,7 +10,6 @@ namespace Kaihatsu.WPF.InformationWindows;
 
 public interface IWindow
 {
-    //public ICommand? ConfirmCommand { get; set; }
     public event Action EventСancellation;
     public event Action EventConfirmation;
     public string TitleWindow { get; set; }

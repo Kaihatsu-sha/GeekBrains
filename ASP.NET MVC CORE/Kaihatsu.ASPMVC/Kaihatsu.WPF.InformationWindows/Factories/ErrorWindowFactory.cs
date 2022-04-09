@@ -18,7 +18,7 @@ internal class ErrorWindowFactory : IWindowsFactory
 
     public IWindow Create()
     {
-        return new ErrorWindow(_owner);
+        return Create("Error", "default header", "default description");
     }
 
     public IWindow Create(string title, string header, string description, double height = 150, double width = 200)
