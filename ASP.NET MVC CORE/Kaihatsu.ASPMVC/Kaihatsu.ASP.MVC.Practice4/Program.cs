@@ -8,8 +8,8 @@ Console.WriteLine("Задание к лекции 4:" + Environment.NewLine);
 
 Facade facade = new Facade();
 
-string pathToMonbento = @"C:\Users\User\source\GeekBrains\ASP.NET MVC CORE\Kaihatsu.ASPMVC\Kaihatsu.ASP.MVC.Practice4\bin\Debug\net6.0\monbento_me.json";
-string pathTastyCoffee = @"C:\Users\User\source\GeekBrains\ASP.NET MVC CORE\Kaihatsu.ASPMVC\Kaihatsu.ASP.MVC.Practice4\bin\Debug\net6.0\shop_tastycoffee_ru.json";
+string pathToMonbento = "monbento_me.json";
+string pathTastyCoffee = "shop_tastycoffee_ru.json";
 
 List<Product> products = facade.GetProductFrom(pathToMonbento, pathTastyCoffee);
 

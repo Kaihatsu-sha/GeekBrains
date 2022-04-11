@@ -1,0 +1,126 @@
+[
+    {
+        "productId":"780",
+        "cardBoxH" :
+        {
+        "ratingCard" : "4.4",
+        "countComment": "681"
+        },
+        "nameTovar": 
+        {
+            "catigory": "Для эспрессо",
+            "processingMethod": "смесь",
+            "name":"Натти",
+            "href":"https://shop.tastycoffee.ru/coffee/espresso-nutty"
+        },
+        "tovarImg":
+        [
+        {
+            "src": "https://coffee-static.storage.yandexcloud.net/files/shares/data/_newpack6/milk/espresso-nutty-025.png",
+            "alt":"Натти"
+        },
+        {
+            "src": "https://coffee-static.storage.yandexcloud.net/files/shares/data/_newpack6/milk/espresso-nutty-1.png",
+            "alt":"Натти"
+        }
+        ,
+        {
+            "src": "https://coffee-static.storage.yandexcloud.net/files/shares/data/beans8/nutty.png",
+            "alt":"Натти"
+        }
+        ],
+
+        "description":
+        {
+            "textTovar": "Плотный кофе со вкусом жареных орехов, печенья и нуги",
+            "lineCbItem":
+            [
+                {
+                    "lineCb": "width: 20%",
+                    "lineCbText": "Кислотность"
+                },
+                {
+                    "lineCb": "width: 60%",
+                    "lineCbText": "Плотность"
+                }
+            ]
+        },
+        "cardBoxFL":
+        [
+            {
+                "id":"price4847",
+                "priceCbWt" : "250 г",
+                "priceCb": "459"
+
+            },
+            {
+                "id":"price4848",
+                "priceCbWt" : "1000 г",
+                "priceCb": "1649"
+
+            }
+        ]
+    },
+    {
+        "productId":"381",
+        "cardBoxH" :
+        {
+        "ratingCard" : "4.3",
+        "countComment": "688"
+        },
+        "nameTovar": 
+        {
+            "catigory": "Для эспрессо",
+            "processingMethod": "смесь",
+            "name":"Бэрри",
+            "href":"https://shop.tastycoffee.ru/coffee/espresso-berri"
+        },
+        "tovarImg":
+        [
+        {
+            "src": "https://coffee-static.storage.yandexcloud.net/files/shares/data/_newpack6/milk/250_berri_milk.png",
+            "alt":"Бэрри"
+        },
+        {
+            "src": "https://coffee-static.storage.yandexcloud.net/files/shares/data/_newpack6/milk/1000_berri_milk.png",
+            "alt":"Бэрри"
+        }
+        ,
+        {
+            "src": "https://coffee-static.storage.yandexcloud.net/files/shares/data/beans4/espresso-firm/beans-espresso-berri.png",
+            "alt":"Бэрри"
+        }
+        ],
+
+        "description":
+        {
+            "textTovar": "Вкус с нотами ореховой пасты, темных ягод и печенья. Низкая кислотность и высокая сладость",
+            "lineCbItem":
+            [
+                {
+                    "lineCb": "width: 40%",
+                    "lineCbText": "Кислотность"
+                },
+                {
+                    "lineCb": "width: 60%",
+                    "lineCbText": "Плотность"
+                }
+            ]
+        },
+        "cardBoxFL":
+        [
+            {
+                "id":"price2505",
+                "priceCbWt" : "250 г",
+                "priceCb": "429"
+
+            },
+            {
+                "id":"price2504",
+                "priceCbWt" : "1000 г",
+                "priceCb": "1539"
+
+            }
+        ]
+    }
+]
