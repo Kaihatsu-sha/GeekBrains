@@ -7,14 +7,16 @@ namespace Kaihatsu.Timesheets.Core.Repository
     public class AppDbContext : DbContext //FIX : internal?!
     {
         public AppDbContext(DbContextOptions dbContext) : base(dbContext)
-        {
-            //Database.EnsureDeleted();
-            Database.EnsureCreated();
-            
+        {            
         }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Contract> Contracts { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
+        public DbSet<Sheet> Sheets { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -23,15 +25,6 @@ namespace Kaihatsu.Timesheets.Core.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<User>().Ignore(x => x.Comment);
-            //modelBuilder.Entity<Employee>()
-            //    //.HasOne(e => e.UserId)
-            //    .WithOne();
-
-            //modelBuilder.Entity<Employee>()
-            //   .HasOne<User>()
-            //   .WithMany()
-            //   .HasForeignKey(p => p.UserId);
         }
 
     }

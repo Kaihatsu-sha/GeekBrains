@@ -9,7 +9,7 @@ namespace Kaihatsu.Timesheets.WebAPI.EmployeeEndpoints
     public partial class EmployeeEndpoint
     {
         [HttpPut]
-        public async Task<ActionResult> UpdatePerson([FromBody] Employee entity, CancellationToken token)
+        public async Task<ActionResult> UpdateEmployee([FromBody] Employee entity, CancellationToken token)
         {
             _logger.LogTrace("UpdateEmployee {0}", entity);
 
