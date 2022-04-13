@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASPMVC.StructurePa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASP.MVC.Practice4", "Kaihatsu.ASP.MVC.Practice4\Kaihatsu.ASP.MVC.Practice4.csproj", "{D2BE45EC-4C2E-48DF-AB2A-3C7CEA4DE5ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASPMVC.BehavioralPatterns", "Kaihatsu.ASPMVC.BehavioralPatterns\Kaihatsu.ASPMVC.BehavioralPatterns.csproj", "{7F716889-E66F-4DBB-8DF6-215CAF10B2A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D2BE45EC-4C2E-48DF-AB2A-3C7CEA4DE5ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2BE45EC-4C2E-48DF-AB2A-3C7CEA4DE5ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2BE45EC-4C2E-48DF-AB2A-3C7CEA4DE5ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F716889-E66F-4DBB-8DF6-215CAF10B2A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F716889-E66F-4DBB-8DF6-215CAF10B2A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F716889-E66F-4DBB-8DF6-215CAF10B2A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F716889-E66F-4DBB-8DF6-215CAF10B2A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
