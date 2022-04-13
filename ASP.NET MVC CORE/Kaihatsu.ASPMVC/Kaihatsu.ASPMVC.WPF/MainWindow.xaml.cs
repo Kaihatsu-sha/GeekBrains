@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Kaihatsu.WPF.InformationWindows;
 
 namespace Kaihatsu.ASPMVC.WPF;
 
@@ -21,66 +21,59 @@ namespace Kaihatsu.ASPMVC.WPF;
 /// </summary>
 public partial class MainWindow : Window
 {
-    private int _timeout = 1_000;
-    private bool _isRun = false;
-    private FibonacceThread _fibonacceThread;
+    private readonly IWindowsFactory _errorWindowsFactory;
+    private readonly IWindowsFactory _confirmWindowsFactory;
+    private readonly IWindowsFactory _informationWindowsFactory;
+
+    public CreateWindowCommand _errorWindow;
+    public CreateWindowCommand _confirmWindow;
+    public CreateWindowCommand _informationWindow;
+
+    WindowContent InformationContent;
+    WindowContent ConfirmContent;
+    WindowContent ErrorContent;
+
+
+
+    public CreateWindowCommand ShowErrorWindow
+    {
+        get
+        {
+            return _errorWindow ??= new CreateWindowCommand(_errorWindowsFactory, ErrorContent);
+        }
+    }
+
+    public CreateWindowCommand ShowConfirmWindow
+    {
+        get
+        {
+            return _confirmWindow ??= new CreateWindowCommand(_confirmWindowsFactory, ConfirmContent);
+        }
+    }
+
+    public CreateWindowCommand ShowInformationWindow
+    {
+        get
+        {
+            return _informationWindow ??= new CreateWindowCommand(_informationWindowsFactory, InformationContent);
+        }
+    }
 
     public MainWindow()
     {
+        CreateWindowContent();
         InitializeComponent();
-        FibonacceTextBlock.Text = "";
-        _fibonacceThread = new FibonacceThread(AddToTextBlock, _timeout);
+        DataContext = this;
+
+        _errorWindowsFactory = WindowsFactory.GetFactory(this, WindowType.Error);
+        _confirmWindowsFactory = WindowsFactory.GetFactory(this, WindowType.Confirm);
+        _informationWindowsFactory = WindowsFactory.GetFactory(this, WindowType.Information);
     }
 
-    private void CancelBtnClick(object sender, RoutedEventArgs e)
+    private void CreateWindowContent()
     {
-        FibonacceTextBlock.Text += "STOP!!!";
-        //_fibonacceThread.StopJoin();
-        try
-        {
-            _fibonacceThread.StopInterrupt();
-        }
-        catch (ThreadInterruptedException ex)
-        {
-
-        }
-        finally 
-        {
-            FibonacceTextBlock.Text += "STOP!!!";
-        }
-    }
-
-    private void StartBtnClick(object sender, RoutedEventArgs e)
-    {
-        _isRun = true;
-        _fibonacceThread.Run();
-        ((Button)sender).IsEnabled = false;
-        StopBtn.IsEnabled = true;
-    }
-
-    private void AddToTextBlock(long value)
-    {
-        Dispatcher.Invoke(() => FibonacceTextBlock.Text += $"{value} ");//Вызывается в другом потоке
-    }
-
-    private void ChangeTimeout(double roundValue)
-    {
-        if (_isRun)
-        {
-            _fibonacceThread.Timeout = 1_000 * (int)roundValue;
-        }
-        else
-        {
-            _timeout = 1_000 * (int)roundValue;
-        }
-    }
-
-    private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-    {
-        Slider ss = (Slider)sender;
-        double valueSlider = ss.Value;
-        double roundValue = Math.Round(valueSlider, MidpointRounding.ToEven);
-        ss.Value = roundValue;
-        ChangeTimeout(roundValue);
+        InformationContent = new WindowContent { Title = "Информация", Header = "Внимание!!!", Description = "Ставки на спорт" };
+        ConfirmContent = new WindowContent { Title = "Подтверждение", Header = "Подтвердите действие", Description = "Вы точно уверены??" };
+        ErrorContent = new WindowContent { Title = "Ошибка", Header = "Произошла ошибка", Description = "NullReferenceException" };
     }
 }
