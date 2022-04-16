@@ -4,8 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kaihatsu.ASPMVC.WPF"
+        xmlns:vm="clr-namespace:Kaihatsu.ASPMVC.WPF.ViewModels"
+        xmlns:wt="clr-namespace:Kaihatsu.WPF.InformationWindows;assembly=Kaihatsu.WPF.InformationWindows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="300">
+        Title="{Binding Title}" 
+        Height="250" 
+        Width="300">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
@@ -13,11 +20,15 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.ColumnSpan="2">
             <Button Content="Show Error Window"
-                    Command="{Binding ShowErrorWindow}"/>
+                    Command="{Binding ShowWindow}"
+                    CommandParameter="{x:Static wt:WindowType.Error}"/>
             <Button Content="Show Information Window"
-                    Command="{Binding ShowInformationWindow}"/>
+                    Command="{Binding ShowWindow}"
+                    CommandParameter="{x:Static wt:WindowType.Information}"/>
             <Button Content="Show Confirm Window"
-                    Command="{Binding ShowConfirmWindow}"/>
+                    Command="{Binding ShowWindow}"
+                    CommandParameter="{x:Static wt:WindowType.Confirm}"/>
+            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         </StackPanel>
     </Grid>
 </Window>

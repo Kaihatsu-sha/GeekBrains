@@ -1,0 +1,20 @@
+[
+    {
+        "catalogPrice" : "4 100 руб.",
+        "catalogName": "Термос MB Genius Strawberry, 500 мл",
+        "href": "products/termos-mb-genius-05-l-strawberry",
+        "img": "https://monbento.me/f/monbento/products/16056007548.230x230.jpeg?1012ab116b6fd2f5234391d58aaf2f31"
+    },
+    {
+        "catalogPrice" : "3 850 руб.",
+        "catalogName": "Термос MB Steel Jungle, 500 мл",
+        "href": "products/termos-mb-steel-jungle",
+        "img": "https://monbento.me/f/monbento/products/15694901350.230x230.png?36360f1dbef223ae78c5537ab901fdfa"
+    },
+    {
+        "catalogPrice" : "2 960 руб.",
+        "catalogName": "Термос MB Pop Blue Infinity, 360 мл",
+        "href": "products/termos-mb-pop-bleu-infinity-360-ml",
+        "img": "https://monbento.me/f/monbento/products/16176349620.230x230.jpeg?ef4c3f93756da57e733483f09469fa2e"
+    }
+]
