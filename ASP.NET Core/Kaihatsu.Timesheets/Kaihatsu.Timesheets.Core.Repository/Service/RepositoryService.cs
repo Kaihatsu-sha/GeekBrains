@@ -23,7 +23,6 @@ namespace Kaihatsu.Timesheets.Core.Repository.Service
         {
             EntityEntry<T> entityEntry = await _dbContext.Set<T>().AddAsync(entity, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
-            //return entityEntry.Entity;
         }
 
         public async Task DeleteAsync(T entity, CancellationToken cancellationToken = default)
