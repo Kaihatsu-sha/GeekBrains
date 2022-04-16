@@ -3,33 +3,76 @@
 using Kaihatsu.ASPMVC.DAL.Context;
 using Kaihatsu.ASPMVC.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
-// Используем ДБ без контейнера сервисов
-var dbBuilder = new DbContextOptionsBuilder<OrdersDB>()
-    .UseNpgsql("Host=localhost;Port=5432;Database=OrdersDB;Username=postgres;Password=postgres;");
+IHost _Host = CreateHostBuilder(Environment.GetCommandLineArgs())
+    .Build();
 
-using (var db = new OrdersDB(dbBuilder.Options))
+bool isRunning = true;
+_Host.Start();
+while (isRunning)
 {
-    //db.Database.EnsureCreated();
+    Console.WriteLine("Start");   
+}
+_Host.StopAsync();
 
-    if (db.Buyers.Any())
+
+//UseDB();
+//UseDBFromServices();
+
+IHostBuilder CreateHostBuilder(string[] args)
+{
+    return Host.CreateDefaultBuilder(args)
+       .ConfigureHostConfiguration(opt => opt.AddJsonFile("appsettings.json"))
+       .ConfigureAppConfiguration(opt => opt.AddJsonFile("appsettings.json"))
+       .ConfigureLogging(configure =>
+           {
+               configure.ClearProviders();
+               configure.AddDebug();
+           })
+       .ConfigureServices(ConfigureServices);
+}
+
+void ConfigureServices(HostBuilderContext context, IServiceCollection services)
+{
+    services.AddDbContext<OrdersDB>(options =>
+        options.UseNpgsql(context.Configuration.GetConnectionString("Npgsql")));
+}
+
+void UseDB()
+{
+    // Используем ДБ без контейнера сервисов
+    var dbBuilder = new DbContextOptionsBuilder<OrdersDB>()
+        .UseNpgsql("Host=localhost;Port=5432;Database=OrdersDB;Username=postgres;Password=postgres;");
+
+    using (var db = new OrdersDB(dbBuilder.Options))
     {
-        db.Buyers.Add(new Buyer() { Age = 18, LastName = "Sidorov", Patronymic = "Vladimirovich" });
-        db.Buyers.Add(new Buyer() { Age = 29, LastName = "Sidorov", Patronymic = "Mixailovich" });
-        db.Buyers.Add(new Buyer() { Age = 21, LastName = "Pushnov", Patronymic = "Vladimirovich" });
+        //db.Database.EnsureCreated();
 
-        db.SaveChanges();
+        if (db.Buyers.Any())
+        {
+            db.Buyers.Add(new Buyer() { Age = 18, LastName = "Sidorov", Patronymic = "Vladimirovich" });
+            db.Buyers.Add(new Buyer() { Age = 29, LastName = "Sidorov", Patronymic = "Mixailovich" });
+            db.Buyers.Add(new Buyer() { Age = 21, LastName = "Pushnov", Patronymic = "Vladimirovich" });
+
+            db.SaveChanges();
+        }
     }
 }
 
-IServiceCollection services = new ServiceCollection();
-services.AddDbContext<OrdersDB>(options =>
-    options.UseNpgsql("Host=localhost;Port=5432;Database=OrdersDB;Username=postgres;Password=postgres;"));
-
-ServiceProvider serviceProvider = services.BuildServiceProvider();
-OrdersDB serviceOrdersDB = serviceProvider.GetRequiredService<OrdersDB>();
-foreach (Buyer buyer in serviceOrdersDB.Buyers)
+void UseDBFromServices()
 {
-    Console.WriteLine($"[{buyer.Id}] : {buyer.LastName} NAME {buyer.Patronymic} {buyer.Age}");
+    IServiceCollection services = new ServiceCollection();
+    services.AddDbContext<OrdersDB>(options =>
+        options.UseNpgsql("Host=localhost;Port=5432;Database=OrdersDB;Username=postgres;Password=postgres;"));
+
+    ServiceProvider serviceProvider = services.BuildServiceProvider();
+    OrdersDB serviceOrdersDB = serviceProvider.GetRequiredService<OrdersDB>();
+    foreach (Buyer buyer in serviceOrdersDB.Buyers)
+    {
+        Console.WriteLine($"[{buyer.Id}] : {buyer.LastName} NAME {buyer.Patronymic} {buyer.Age}");
+    }
 }
