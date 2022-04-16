@@ -11,9 +11,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.WPF.InformationWin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASPMVC.StructurePatterns", "Kaihatsu.ASPMVC.StructurePatterns\Kaihatsu.ASPMVC.StructurePatterns.csproj", "{73F2729C-0115-41A2-9872-BE9C6BB84FCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASP.MVC.Practice4", "Kaihatsu.ASP.MVC.Practice4\Kaihatsu.ASP.MVC.Practice4.csproj", "{D2BE45EC-4C2E-48DF-AB2A-3C7CEA4DE5ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASP.MVC.Practice4", "Kaihatsu.ASP.MVC.Practice4\Kaihatsu.ASP.MVC.Practice4.csproj", "{D2BE45EC-4C2E-48DF-AB2A-3C7CEA4DE5ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASPMVC.BehavioralPatterns", "Kaihatsu.ASPMVC.BehavioralPatterns\Kaihatsu.ASPMVC.BehavioralPatterns.csproj", "{7F716889-E66F-4DBB-8DF6-215CAF10B2A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASPMVC.BehavioralPatterns", "Kaihatsu.ASPMVC.BehavioralPatterns\Kaihatsu.ASPMVC.BehavioralPatterns.csproj", "{7F716889-E66F-4DBB-8DF6-215CAF10B2A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASP.MVC.Practice5", "Kaihatsu.ASP.MVC.Practice5\Kaihatsu.ASP.MVC.Practice5.csproj", "{0461C9C9-0B54-4096-850C-5312CFA3D64B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASP.MVC.Practice5.Library", "Kaihatsu.ASP.MVC.Practice5.Library\Kaihatsu.ASP.MVC.Practice5.Library.csproj", "{3266AD77-6806-4A63-9FF7-6FFD1F0465C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASP.MVC.Practice5.Scaner", "Kaihatsu.ASP.MVC.Practice5.Scaner\Kaihatsu.ASP.MVC.Practice5.Scaner.csproj", "{283B92BA-3CD6-4287-A4A2-41B3E0D1970A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +51,18 @@ Global
 		{7F716889-E66F-4DBB-8DF6-215CAF10B2A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F716889-E66F-4DBB-8DF6-215CAF10B2A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F716889-E66F-4DBB-8DF6-215CAF10B2A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0461C9C9-0B54-4096-850C-5312CFA3D64B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0461C9C9-0B54-4096-850C-5312CFA3D64B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0461C9C9-0B54-4096-850C-5312CFA3D64B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0461C9C9-0B54-4096-850C-5312CFA3D64B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3266AD77-6806-4A63-9FF7-6FFD1F0465C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3266AD77-6806-4A63-9FF7-6FFD1F0465C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3266AD77-6806-4A63-9FF7-6FFD1F0465C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3266AD77-6806-4A63-9FF7-6FFD1F0465C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{283B92BA-3CD6-4287-A4A2-41B3E0D1970A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{283B92BA-3CD6-4287-A4A2-41B3E0D1970A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{283B92BA-3CD6-4287-A4A2-41B3E0D1970A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{283B92BA-3CD6-4287-A4A2-41B3E0D1970A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
