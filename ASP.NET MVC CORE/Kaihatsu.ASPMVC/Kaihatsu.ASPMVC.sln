@@ -4,23 +4,30 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASPMVC.CreationalPatterns", "Kaihatsu.ASPMVC.CreationalPatterns\Kaihatsu.ASPMVC.CreationalPatterns.csproj", "{968BE735-F447-4D94-B05C-18D27AF48FB4}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASPMVC.WPF", "Kaihatsu.ASPMVC.WPF\Kaihatsu.ASPMVC.WPF.csproj", "{9DF172A6-C633-48DC-981E-794659EE8121}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.WPF.InformationWindows", "Kaihatsu.WPF.InformationWindows\Kaihatsu.WPF.InformationWindows.csproj", "{8F955364-3DA8-4EEC-84AD-5AD2557A7F99}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASPMVC.StructurePatterns", "Kaihatsu.ASPMVC.StructurePatterns\Kaihatsu.ASPMVC.StructurePatterns.csproj", "{73F2729C-0115-41A2-9872-BE9C6BB84FCA}"
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASP.MVC.Practice4", "Kaihatsu.ASP.MVC.Practice4\Kaihatsu.ASP.MVC.Practice4.csproj", "{D2BE45EC-4C2E-48DF-AB2A-3C7CEA4DE5ED}"
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASPMVC.CustomThreadPool", "Kaihatsu.ASPMVC.CustomThreadPool\Kaihatsu.ASPMVC.CustomThreadPool.csproj", "{5B4E73EC-AD41-48BB-B949-E07BB612D366}"
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASPMVC.WPF", "Kaihatsu.ASPMVC.WPF\Kaihatsu.ASPMVC.WPF.csproj", "{ED4BDE6D-229B-4DC4-8245-7DAAEEF1B938}"
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASPMVC.CustomList", "Kaihatsu.ASPMVC.CustomList\Kaihatsu.ASPMVC.CustomList.csproj", "{EDD4522A-111E-465D-B9A1-142B5E9BB39C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASP.MVC.Practice4", "Kaihatsu.ASP.MVC.Practice4\Kaihatsu.ASP.MVC.Practice4.csproj", "{D2BE45EC-4C2E-48DF-AB2A-3C7CEA4DE5ED}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASPMVC.CustomThreadPool", "Kaihatsu.ASPMVC.CustomThreadPool\Kaihatsu.ASPMVC.CustomThreadPool.csproj", "{5B4E73EC-AD41-48BB-B949-E07BB612D366}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASPMVC.CustomList", "Kaihatsu.ASPMVC.CustomList\Kaihatsu.ASPMVC.CustomList.csproj", "{EDD4522A-111E-465D-B9A1-142B5E9BB39C}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASPMVC.BehavioralPatterns", "Kaihatsu.ASPMVC.BehavioralPatterns\Kaihatsu.ASPMVC.BehavioralPatterns.csproj", "{7F716889-E66F-4DBB-8DF6-215CAF10B2A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASP.MVC.Practice5", "Kaihatsu.ASP.MVC.Practice5\Kaihatsu.ASP.MVC.Practice5.csproj", "{0461C9C9-0B54-4096-850C-5312CFA3D64B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASP.MVC.Practice5", "Kaihatsu.ASP.MVC.Practice5\Kaihatsu.ASP.MVC.Practice5.csproj", "{0461C9C9-0B54-4096-850C-5312CFA3D64B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASP.MVC.Practice5.Library", "Kaihatsu.ASP.MVC.Practice5.Library\Kaihatsu.ASP.MVC.Practice5.Library.csproj", "{3266AD77-6806-4A63-9FF7-6FFD1F0465C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASP.MVC.Practice5.Library", "Kaihatsu.ASP.MVC.Practice5.Library\Kaihatsu.ASP.MVC.Practice5.Library.csproj", "{3266AD77-6806-4A63-9FF7-6FFD1F0465C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASP.MVC.Practice5.Scaner", "Kaihatsu.ASP.MVC.Practice5.Scaner\Kaihatsu.ASP.MVC.Practice5.Scaner.csproj", "{283B92BA-3CD6-4287-A4A2-41B3E0D1970A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASP.MVC.Practice5.Scaner", "Kaihatsu.ASP.MVC.Practice5.Scaner\Kaihatsu.ASP.MVC.Practice5.Scaner.csproj", "{283B92BA-3CD6-4287-A4A2-41B3E0D1970A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASPMVC.DAL", "Kaihatsu.ASPMVC.DAL\Kaihatsu.ASPMVC.DAL.csproj", "{E774D3D0-1886-4334-97E4-1E95EC1AB82B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASPMVC.IoC", "Kaihatsu.ASPMVC.IoC\Kaihatsu.ASPMVC.IoC.csproj", "{27E7A00D-893F-41F0-AB45-AF0B63CE11E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,10 +59,6 @@ Global
 		{5B4E73EC-AD41-48BB-B949-E07BB612D366}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B4E73EC-AD41-48BB-B949-E07BB612D366}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B4E73EC-AD41-48BB-B949-E07BB612D366}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ED4BDE6D-229B-4DC4-8245-7DAAEEF1B938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED4BDE6D-229B-4DC4-8245-7DAAEEF1B938}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED4BDE6D-229B-4DC4-8245-7DAAEEF1B938}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED4BDE6D-229B-4DC4-8245-7DAAEEF1B938}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EDD4522A-111E-465D-B9A1-142B5E9BB39C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EDD4522A-111E-465D-B9A1-142B5E9BB39C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDD4522A-111E-465D-B9A1-142B5E9BB39C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -76,6 +79,14 @@ Global
 		{283B92BA-3CD6-4287-A4A2-41B3E0D1970A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{283B92BA-3CD6-4287-A4A2-41B3E0D1970A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{283B92BA-3CD6-4287-A4A2-41B3E0D1970A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E774D3D0-1886-4334-97E4-1E95EC1AB82B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E774D3D0-1886-4334-97E4-1E95EC1AB82B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E774D3D0-1886-4334-97E4-1E95EC1AB82B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E774D3D0-1886-4334-97E4-1E95EC1AB82B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27E7A00D-893F-41F0-AB45-AF0B63CE11E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27E7A00D-893F-41F0-AB45-AF0B63CE11E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27E7A00D-893F-41F0-AB45-AF0B63CE11E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27E7A00D-893F-41F0-AB45-AF0B63CE11E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
