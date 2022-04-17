@@ -11,11 +11,20 @@ using Microsoft.Extensions.Logging;
 IHost _Host = CreateHostBuilder(Environment.GetCommandLineArgs())
     .Build();
 
+IServiceProvider _serviceProvider = _Host.Services;
+
 bool isRunning = true;
 _Host.Start();
-while (isRunning)
 {
     Console.WriteLine("Start");   
+    using (OrdersDB serviceDB = _serviceProvider.GetRequiredService<OrdersDB>())
+    {
+        serviceDB.Database.Migrate();
+        foreach (Buyer buyer in serviceDB.Buyers)
+        {
+            Console.WriteLine($"[{buyer.Id}] : {buyer.LastName} NAME {buyer.Patronymic} {buyer.Age}");
+        }
+    }
 }
 _Host.StopAsync();
 
@@ -32,6 +41,7 @@ IHostBuilder CreateHostBuilder(string[] args)
            {
                configure.ClearProviders();
                configure.AddDebug();
+               configure.AddConsole();
            })
        .ConfigureServices(ConfigureServices);
 }
