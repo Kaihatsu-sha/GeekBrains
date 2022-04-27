@@ -2,6 +2,11 @@
 using Kaihatsu.ASP.MVC.Practice5;
 using Kaihatsu.ASP.MVC.Practice5.Library;
 using Kaihatsu.ASP.MVC.Practice5.Scaner;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+
+
 
 
 IScaner scaner = new FileScaner("Scaner.txt");
