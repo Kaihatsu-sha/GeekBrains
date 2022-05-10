@@ -2,8 +2,7 @@
 
 public class FileScaner : IScaner
 {
-    private bool _isReady;
-    private readonly FileInfo _file;
+    private bool _isReady = false;
 
     public bool IsReady { get => _isReady; }
 
@@ -17,23 +16,24 @@ public class FileScaner : IScaner
         };
     }
 
-    public FileScaner(string path)
+    public FileScaner()
+    {
+        _isReady = true;
+    }
+
+    public byte[] Scanning(string path)
     {
         if (!File.Exists(path))
             throw new FileNotFoundException();
 
-        _file = new FileInfo(path);
-        _isReady = true;
-    }
+        FileInfo file = new FileInfo(path);
 
-    public byte[] Scanning()
-    {
         _isReady = false;
         byte[] data;
 
         try
         {
-            using (FileStream stream = _file.OpenRead())
+            using (FileStream stream = file.OpenRead())
             {
                 data = new byte[stream.Length];
                 stream.Read(data, 0, data.Length);

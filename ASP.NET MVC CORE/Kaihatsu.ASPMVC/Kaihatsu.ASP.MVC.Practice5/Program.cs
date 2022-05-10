@@ -9,9 +9,13 @@ using Microsoft.Extensions.Logging;
 
 
 
-IScaner scaner = new FileScaner("Scaner.txt");
-ScanerAdapter adapter = new ScanerAdapter(scaner);
-ScanerManager manager = new ScanerManager(adapter, FileLogger.Instacce("Log.txt"));
-ISaveStrategy strategy = new FileSaveStrategy();
-manager.ScanAndSave(strategy, "SaveStrategy.txt");
+//IScaner scaner = new FileScaner("Scaner.txt");
+//ScanerAdapter adapter = new ScanerAdapter(scaner);
+//ScanerManager manager = new ScanerManager(adapter, FileLogger.Instacce("Log.txt"));
+//ISaveStrategy strategy = new FileSaveStrategy();
+//manager.ScanAndSave(strategy, "SaveStrategy.txt");
 
+Startup startup = new Startup();
+IServiceProvider services = Startup.ServiceProvider;
+ScanerManager smanager = services.GetService<ScanerManager>();
+smanager.ScanAndSave("SaveStrategy2.txt", "Scaner.txt");

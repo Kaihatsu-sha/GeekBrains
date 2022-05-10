@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Kaihatsu.ASPMVC.BehavioralPatterns\Kaihatsu.ASPMVC.BehavioralPatterns.csproj" />
+  </ItemGroup>
+
 </Project>

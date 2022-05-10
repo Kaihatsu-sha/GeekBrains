@@ -4,5 +4,5 @@ public interface IScaner
 {
     public bool IsReady { get; }
     public SystemResource SystemResource { get; }
-    public byte[] Scanning();
+    public byte[] Scanning(string path);
 }

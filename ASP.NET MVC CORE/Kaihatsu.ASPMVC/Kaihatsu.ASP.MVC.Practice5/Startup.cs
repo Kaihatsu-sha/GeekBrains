@@ -9,12 +9,14 @@ namespace Kaihatsu.ASP.MVC.Practice5;
 
 internal class Startup
 {
+    public static IServiceProvider ServiceProvider { get; private set; }
     
     public Startup() 
     {
-        CreateHostBuilder(Environment.GetCommandLineArgs())
-            .Build()
-            .Start();
+        IHost host = CreateHostBuilder(Environment.GetCommandLineArgs())
+            .Build();
+        host.Start();
+        ServiceProvider = host.Services;
     }
 
     private IHostBuilder CreateHostBuilder(string[] args)
@@ -34,5 +36,10 @@ internal class Startup
     private static void ConfigureServices(HostBuilderContext context, IServiceCollection services)
     {
         services.AddSingleton<Kaihatsu.ASP.MVC.Practice5.Library.ILogger, FileLogger>();
+
+        services.AddTransient<IScaner, FileScaner>();        
+        services.AddTransient<Kaihatsu.ASP.MVC.Practice5.Library.Scaner, ScanerAdapter>();
+        services.AddTransient<ISaveStrategy, FileSaveStrategy>();
+        services.AddTransient<ScanerManager>();        
     }
 }
