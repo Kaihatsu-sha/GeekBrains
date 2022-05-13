@@ -25,9 +25,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASP.MVC.Practice5.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASP.MVC.Practice5.Scaner", "Kaihatsu.ASP.MVC.Practice5.Scaner\Kaihatsu.ASP.MVC.Practice5.Scaner.csproj", "{283B92BA-3CD6-4287-A4A2-41B3E0D1970A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASPMVC.DAL", "Kaihatsu.ASPMVC.DAL\Kaihatsu.ASPMVC.DAL.csproj", "{E774D3D0-1886-4334-97E4-1E95EC1AB82B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASPMVC.DAL", "Kaihatsu.ASPMVC.DAL\Kaihatsu.ASPMVC.DAL.csproj", "{E774D3D0-1886-4334-97E4-1E95EC1AB82B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASPMVC.IoC", "Kaihatsu.ASPMVC.IoC\Kaihatsu.ASPMVC.IoC.csproj", "{27E7A00D-893F-41F0-AB45-AF0B63CE11E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASPMVC.IoC", "Kaihatsu.ASPMVC.IoC\Kaihatsu.ASPMVC.IoC.csproj", "{27E7A00D-893F-41F0-AB45-AF0B63CE11E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASP.MVC.Practice7", "Kaihatsu.ASP.MVC.Practice7\Kaihatsu.ASP.MVC.Practice7.csproj", "{6A51452E-40AF-4BD6-938F-23A8B3D0AA22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{27E7A00D-893F-41F0-AB45-AF0B63CE11E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27E7A00D-893F-41F0-AB45-AF0B63CE11E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27E7A00D-893F-41F0-AB45-AF0B63CE11E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A51452E-40AF-4BD6-938F-23A8B3D0AA22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A51452E-40AF-4BD6-938F-23A8B3D0AA22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A51452E-40AF-4BD6-938F-23A8B3D0AA22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A51452E-40AF-4BD6-938F-23A8B3D0AA22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
