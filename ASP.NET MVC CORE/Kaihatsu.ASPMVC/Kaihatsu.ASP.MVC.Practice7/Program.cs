@@ -20,12 +20,17 @@ public static class Program
         //(decimal)(new Random.Shared.NextDouble() *1000) - лучше, безопастно для потоков. Доступ к одному объету Random
         //Convert.ChangeType("124", typeof(int)); - использовать осторожно
 
-        var catalog = new ProductsCatalog("Каталог товаров -1", "Описание каталога-1", DateTime.Now);
+        var catalog = new ProductsCatalog("Каталог товаров -1", "Описание каталога-1", DateTime.Now, products);
 
         string templateFilePath = "template.docx";
         IProductsReport report = new ReportWord(templateFilePath);
         string reportFilePath = "report.docx";
-        CreateReport(report, catalog, reportFilePath);
+        string reportFilePath2 = "report.txt";
+        //CreateReport(report, catalog, reportFilePath);
+
+        //1:26:58
+        //1:41:15
+        CreateReport(new ReportRazor(), catalog, reportFilePath2);
     }
 
     private static void CreateReport(IProductsReport report, ProductsCatalog catalog, string reportFilePath)
@@ -33,6 +38,7 @@ public static class Program
         report.CatalogName = catalog.Name;
         report.CreationDate = catalog.CreationDate;
         report.Description = catalog.Description;
+        report.Products = catalog.Products.Select(item => (item.Id, item.Name, item.Description, item.Price));
         report.Creation(reportFilePath).Execute();
     }
 }

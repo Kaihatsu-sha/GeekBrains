@@ -1,7 +1,7 @@
 ﻿
 namespace Kaihatsu.ASP.MVC.Practice7.Models;
 
-public record ProductsCatalog(string Name, string Description, DateTime CreationDate);
+public record ProductsCatalog(string Name, string Description, DateTime CreationDate, IEnumerable<Product> Products);
 
 //public class ProductsCatalog 
 //{
