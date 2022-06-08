@@ -58,12 +58,12 @@ EMail eMail = builder
 Console.ReadLine();
 
 
-public Process? Execute(string fileName, string args, bool useShellExecute = true)
-{
-    return Process.Start(new ProcessStartInfo(fileName, args){ UseShellExecute = useShellExecute });// Фабричный метод
-}
+//public Process? Execute(string fileName, string args, bool useShellExecute = true)
+//{
+//    return Process.Start(new ProcessStartInfo(fileName, args){ UseShellExecute = useShellExecute });// Фабричный метод
+//}
 
-public Process? ShowInExploree(string fullPathToFile)
-{
-    return Process.Start("explorer", $"/select,\"{fullPathToFile}\"");
-}
+//public Process? ShowInExploree(string fullPathToFile)
+//{
+//    return Process.Start("explorer", $"/select,\"{fullPathToFile}\"");
+//}

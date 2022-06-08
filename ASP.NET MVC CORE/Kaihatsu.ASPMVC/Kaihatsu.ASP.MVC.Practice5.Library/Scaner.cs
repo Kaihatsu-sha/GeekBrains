@@ -5,5 +5,5 @@ public abstract class Scaner
 {
     public abstract bool IsReady { get; }
     public abstract string Info { get; }
-    public abstract byte[] Scanning();
+    public abstract byte[] Scanning(string path);
 }

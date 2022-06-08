@@ -14,7 +14,7 @@ public class FileLogger : ILogger
     // Фабричный метод
     public static ILogger Instacce(string path) => _instance ??= new FileLogger(path);
 
-    private FileLogger(string path)
+    public FileLogger(string path = "Log2.txt")
     {
         if (!File.Exists(path))
         {
@@ -24,7 +24,6 @@ public class FileLogger : ILogger
         else
         {
             _file = new FileInfo(path);
-
         }
     }
 
