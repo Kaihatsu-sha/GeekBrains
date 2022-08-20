@@ -1,0 +1,21 @@
+﻿<h1>Выбор отчета для генерации</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Название</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th></th>
+            <th>Все сотрудники</th>
+            <th><a asp-area="" asp-controller="Reports" asp-action="Create" asp-route-name="allEmployee.txt">Сгенерировать</a></th>
+            <th>
+                <a asp-area="" asp-controller="Reports" asp-action="Show" asp-route-name="allEmployee.txt">Просмотреть</a>
+            </th>
+        </tr>
+    </tbody>
+</table>

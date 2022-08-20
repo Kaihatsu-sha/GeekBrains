@@ -8,7 +8,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.5" />
-    <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.161" /><!-- Отвечате за автоматическое ввостановление клиентский библиотек-->
+    <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.175" />
+    <PackageReference Include="RazorEngine.NetCore" Version="3.1.0" /><!-- Отвечате за автоматическое ввостановление клиентский библиотек-->
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Templates\" />
   </ItemGroup>
 
 </Project>

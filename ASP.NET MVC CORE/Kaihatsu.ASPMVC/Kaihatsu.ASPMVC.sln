@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASPMVC.DAL", "Kaih
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASPMVC.IoC", "Kaihatsu.ASPMVC.IoC\Kaihatsu.ASPMVC.IoC.csproj", "{27E7A00D-893F-41F0-AB45-AF0B63CE11E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kaihatsu.ASP.MVC.Practice7", "Kaihatsu.ASP.MVC.Practice7\Kaihatsu.ASP.MVC.Practice7.csproj", "{6A51452E-40AF-4BD6-938F-23A8B3D0AA22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASP.MVC.Practice7", "Kaihatsu.ASP.MVC.Practice7\Kaihatsu.ASP.MVC.Practice7.csproj", "{6A51452E-40AF-4BD6-938F-23A8B3D0AA22}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kaihatsu.ASP.MVC.Practice8", "Kaihatsu.ASP.MVC.Practice8\Kaihatsu.ASP.MVC.Practice8.csproj", "{5C0ABB65-442E-4B61-9874-09D7CF4EB220}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{6A51452E-40AF-4BD6-938F-23A8B3D0AA22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A51452E-40AF-4BD6-938F-23A8B3D0AA22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A51452E-40AF-4BD6-938F-23A8B3D0AA22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C0ABB65-442E-4B61-9874-09D7CF4EB220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C0ABB65-442E-4B61-9874-09D7CF4EB220}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C0ABB65-442E-4B61-9874-09D7CF4EB220}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C0ABB65-442E-4B61-9874-09D7CF4EB220}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
